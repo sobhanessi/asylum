@@ -1,8 +1,9 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
 import Button from "../components/Button";
 import OneLineInput from "../components/OneLineInput";
 import { Formik } from "formik";
+import { MAIN_BACKGROUND_COLOR, MAIN_BUTTON_COLOR } from "../theme";
 
 const LoginPage = () => {
   const onPressLogin = () => {
@@ -13,7 +14,12 @@ const LoginPage = () => {
   };
   return (
     <View style={styles.container}>
-      {/* <Text>Login Page</Text> */}
+      <View style={styles.logoView}>
+        <Image
+          source={require("../assets/logo.png")}
+          style={styles.logoImage}
+        />
+      </View>
       <Formik
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => console.log(values)}
@@ -47,7 +53,7 @@ const LoginPage = () => {
         )}
       </Formik>
       <Button
-        text="FogotPassword"
+        text="Fogot Password ?"
         onPress={onPressForgotPassword}
         textStyle={styles.text}
         buttonStyle={styles.forgotPasswordButton}
@@ -59,22 +65,35 @@ const LoginPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#70A288",
+    backgroundColor: MAIN_BACKGROUND_COLOR,
     flexDirection: "column",
+    justifyContent: "center",
   },
 
   forgotPasswordButton: {
-    backgroundColor: "#04395E",
+    backgroundColor: MAIN_BUTTON_COLOR,
   },
   loginButton: {
-    backgroundColor: "#04395E",
+    backgroundColor: MAIN_BUTTON_COLOR,
+    // shadowColor: "#171717",
   },
 
-  loginInput: {},
+  loginInput: {
+    shadowColor: "black",
+    shadowOffset: { width: -10, height: 100 },
+    shadowOpacity: 1,
+    shadowRadius: 15,
+  },
+  logoImage: {},
+  logoView: {
+    alignSelf: "center",
+    margin: 10,
+  },
   text: {
     color: "white",
     fontSize: 18,
     fontWeight: "bold",
+    letterSpacing: 2,
   },
 });
 

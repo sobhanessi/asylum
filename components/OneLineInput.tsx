@@ -54,5 +54,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     color: "#04395E",
+    elevation: 20,
+    letterSpacing: 2,
   },
 });

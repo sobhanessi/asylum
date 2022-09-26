@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
 interface props {
@@ -10,9 +10,11 @@ interface props {
 
 const Button = ({ buttonStyle, textStyle, text, onPress }: props) => {
   return (
-    <Pressable style={[buttonStyle, styles.button]} onPress={onPress}>
-      <Text style={textStyle}>{text}</Text>
-    </Pressable>
+    <View style={styles.container}>
+      <Pressable style={[buttonStyle, styles.button]} onPress={onPress}>
+        <Text style={textStyle}>{text}</Text>
+      </Pressable>
+    </View>
   );
 };
 
@@ -29,5 +31,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     // borderWidth: 3,
     // borderColor: "white",
+    elevation: 20,
   },
+  container: {},
 });
