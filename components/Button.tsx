@@ -2,9 +2,9 @@ import { Pressable, StyleSheet, Text } from "react-native";
 import React from "react";
 
 interface props {
-  buttonStyle: Object;
-  textStyle: Object;
-  text: String;
+  buttonStyle: object;
+  textStyle: object;
+  text: string;
   onPress: any;
 }
 
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     alignSelf: "center",
-    width: 260,
+    width: "75%",
     borderRadius: 15,
     height: 50,
     marginVertical: 5,
