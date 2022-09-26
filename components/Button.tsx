@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { SHADOW } from "../theme";
 
 interface props {
   buttonStyle: object;
@@ -29,9 +30,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     height: 50,
     marginVertical: 5,
-    // borderWidth: 3,
-    // borderColor: "white",
-    elevation: 20,
+    ...SHADOW,
   },
   container: {},
 });

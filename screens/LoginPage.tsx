@@ -1,9 +1,9 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 import React from "react";
 import Button from "../components/Button";
 import OneLineInput from "../components/OneLineInput";
 import { Formik } from "formik";
-import { MAIN_BACKGROUND_COLOR, MAIN_BUTTON_COLOR } from "../theme";
+import { MAIN_BACKGROUND_COLOR, MAIN_BUTTON_COLOR, SHADOW } from "../theme";
 
 const LoginPage = () => {
   const onPressLogin = () => {
@@ -34,6 +34,7 @@ const LoginPage = () => {
               placeholder="Your Email"
               keyboardType="email-address"
             />
+
             <OneLineInput
               onChange={handleChange("password")}
               onBlur={handleBlur("password")}
@@ -78,16 +79,17 @@ const styles = StyleSheet.create({
     // shadowColor: "#171717",
   },
 
-  loginInput: {
-    shadowColor: "black",
-    shadowOffset: { width: -10, height: 100 },
-    shadowOpacity: 1,
-    shadowRadius: 15,
+  loginInput: {},
+  logoImage: {
+    ...SHADOW,
+    borderWidth: 6,
+    borderColor: "#B7ADCF",
+    borderRadius: 200,
   },
-  logoImage: {},
   logoView: {
     alignSelf: "center",
     margin: 10,
+    ...SHADOW,
   },
   text: {
     color: "white",

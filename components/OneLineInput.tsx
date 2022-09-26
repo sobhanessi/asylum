@@ -1,5 +1,6 @@
 import { KeyboardTypeOptions, StyleSheet, TextInput, View } from "react-native";
 import React from "react";
+import { MAIN_BUTTON_COLOR, SHADOW } from "../theme";
 
 interface props {
   onChange: any;
@@ -21,7 +22,7 @@ const OneLineInput = ({
   secureTextEntry = false,
 }: props) => {
   return (
-    <View style={styles.container}>
+    <View>
       <TextInput
         onChangeText={onChange}
         value={value}
@@ -38,11 +39,8 @@ const OneLineInput = ({
 export default OneLineInput;
 
 const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-  },
+  container: {},
   input: {
-    display: "flex",
     height: 60,
     alignSelf: "center",
     justifyContent: "center",
@@ -53,8 +51,8 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     fontSize: 18,
     fontWeight: "bold",
-    color: "#04395E",
-    elevation: 20,
+    color: MAIN_BUTTON_COLOR,
     letterSpacing: 2,
+    ...SHADOW,
   },
 });
