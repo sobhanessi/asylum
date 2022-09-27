@@ -12,3 +12,13 @@ export const SHADOW = {
 
   elevation: 24,
 };
+
+export const SCREEN_OPTION = {
+  headerStyle: {
+    backgroundColor: MAIN_BACKGROUND_COLOR,
+  },
+  headerTintColor: MAIN_BUTTON_COLOR,
+  headerTitleStyle: {
+    fontWeight: "bold",
+  },
+};
