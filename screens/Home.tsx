@@ -69,7 +69,17 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     marginBottom: 10,
   },
-  information: { fontSize: 18, marginBottom: 10, marginLeft: 4, width: "100%" },
+  information: {
+    borderBottomWidth: 1,
+    borderBottomColor: "gray",
+    borderBottomLeftRadius: 25,
+    borderBottomRightRadius: 25,
+    fontSize: 18,
+    marginBottom: 10,
+    marginLeft: 4,
+    paddingBottom: 10,
+    width: "100%",
+  },
   name: {
     fontWeight: "bold",
     fontSize: 24,

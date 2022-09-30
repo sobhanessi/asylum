@@ -1,9 +1,9 @@
-import { View, StyleSheet, Image } from "react-native";
-import React from "react";
 import Button from "../components/Button";
-import OneLineInput from "../components/OneLineInput";
 import { Formik } from "formik";
 import { MAIN_BACKGROUND_COLOR, MAIN_BUTTON_COLOR, SHADOW } from "../theme";
+import OneLineInput from "../components/OneLineInput";
+import { View, StyleSheet, Image, ScrollView } from "react-native";
+import React from "react";
 
 const LoginPage = () => {
   const onPressLogin = () => {
@@ -13,7 +13,7 @@ const LoginPage = () => {
     console.log("forgot password clicked");
   };
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.logoView}>
         <Image
           source={require("../assets/logo.png")}
@@ -59,7 +59,7 @@ const LoginPage = () => {
         textStyle={styles.text}
         buttonStyle={styles.forgotPasswordButton}
       />
-    </View>
+    </ScrollView>
   );
 };
 
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: MAIN_BACKGROUND_COLOR,
     flexDirection: "column",
-    justifyContent: "center",
+    // justifyContent: "center",
   },
 
   forgotPasswordButton: {
@@ -81,15 +81,19 @@ const styles = StyleSheet.create({
 
   loginInput: {},
   logoImage: {
-    ...SHADOW,
+    width: "100%",
+    height: "100%",
     borderWidth: 6,
     borderColor: "#B7ADCF",
     borderRadius: 200,
   },
   logoView: {
     alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
     margin: 10,
-    ...SHADOW,
+    width: 220,
+    height: 220,
   },
   text: {
     color: "white",
