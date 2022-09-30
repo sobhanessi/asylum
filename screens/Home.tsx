@@ -1,6 +1,7 @@
 import ngos from "../database/ngos";
 import React from "react";
 import {
+  Dimensions,
   FlatList,
   Image,
   ScrollView,
@@ -20,26 +21,27 @@ interface ngo {
 }
 
 const Item = ({ item }: { item: ngo }) => {
+  const windowWidth = Dimensions.get("window").width;
+  const itemWidth = windowWidth / 2 - 10;
   return (
     <View
       style={{
-        flex: 1,
-        // flexDirection: "row",
-        width: 120,
-        marginHorizontal: 35,
+        width: itemWidth,
+        marginLeft: 4.5,
+        marginRight: 4.5,
       }}
     >
       <Image
         source={require("../assets/unhcr.png")}
         style={{
-          width: 120,
+          width: "100%",
           height: 120,
           borderRadius: 15,
           marginBottom: 10,
         }}
       />
-      <Text style={{ marginBottom: 5 }}>{item.name}</Text>
-      <Text style={{ marginBottom: 10 }}>{item.information}</Text>
+      <Text style={{ marginBottom: 5, width: 120 }}>{item.name}</Text>
+      <Text style={{ marginBottom: 10, width: 120 }}>{item.information}</Text>
     </View>
   );
 };
@@ -50,7 +52,7 @@ const Home = () => {
     <ScrollView
       style={{
         flex: 1,
-        width: "100%",
+        // width: "100%",
         // flexWrap: "wrap",
       }}
       horizontal={true}
@@ -60,6 +62,9 @@ const Home = () => {
         renderItem={renderItem}
         keyExtractor={(item) => item.key}
         numColumns={2}
+        centerContent={true}
+        columnWrapperStyle={{ display: "flex", justifyContent: "space-around" }}
+        contentContainerStyle={{ flexGrow: 1 }}
       />
     </ScrollView>
   );
