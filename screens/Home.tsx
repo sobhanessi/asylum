@@ -3,7 +3,6 @@ import React from "react";
 import {
   FlatList,
   Image,
-  // ListViewBase,
   ScrollView,
   StyleSheet,
   Text,
@@ -25,19 +24,22 @@ const Item = ({ item }: { item: ngo }) => {
     <View
       style={{
         flex: 1,
-        flexDirection: "row",
+        // flexDirection: "row",
+        width: 120,
+        marginHorizontal: 35,
       }}
     >
       <Image
-        source={require("../assets/logo.png")}
+        source={require("../assets/unhcr.png")}
         style={{
-          // display: "flex",
           width: 120,
           height: 120,
+          borderRadius: 15,
+          marginBottom: 10,
         }}
       />
-      <Text>{item.name}</Text>
-      <Text>{}</Text>
+      <Text style={{ marginBottom: 5 }}>{item.name}</Text>
+      <Text style={{ marginBottom: 10 }}>{item.information}</Text>
     </View>
   );
 };
