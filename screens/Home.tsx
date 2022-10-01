@@ -1,3 +1,4 @@
+import AppLoading from "expo-app-loading";
 import ngos from "../database/ngos";
 import React from "react";
 import {
@@ -9,6 +10,11 @@ import {
   Text,
   View,
 } from "react-native";
+import {
+  Roboto_900Black,
+  Roboto_500Medium,
+  useFonts,
+} from "@expo-google-fonts/roboto";
 
 interface ngo {
   key: string;
@@ -21,24 +27,48 @@ interface ngo {
 }
 
 const Item = ({ item }: { item: ngo }) => {
+  // console.log(fontsLodaded);
   const windowWidth = Dimensions.get("window").width;
   const itemWidth = windowWidth / 2 - 10;
-  return (
-    <View
-      style={{
-        width: itemWidth,
-        ...styles.container,
-      }}
-    >
-      <Image source={require("../assets/unhcr.png")} style={styles.image} />
-      <Text style={styles.name}>{item.name}</Text>
-      <Text style={styles.information}>{item.information}</Text>
-    </View>
-  );
+  let [fontsLodaded] = useFonts({
+    Roboto_500Medium,
+    Roboto_900Black,
+  });
+  if (!fontsLodaded) return <AppLoading />;
+  else
+    return (
+      <View
+        style={{
+          width: itemWidth,
+          ...styles.container,
+        }}
+      >
+        <Image source={require("../assets/unhcr.png")} style={styles.image} />
+        <Text style={[styles.name, { fontFamily: "Roboto_900Black" }]}>
+          {item.name}
+        </Text>
+        <Text style={[styles.information, { fontFamily: "Roboto_500Medium" }]}>
+          {item.information}
+        </Text>
+        <Text style={[styles.information, { fontFamily: "Roboto_500Medium" }]}>
+          Services :
+        </Text>
+
+        <Text
+          style={[
+            styles.services,
+            { fontFamily: "Roboto_500Medium", textAlign: "center" },
+          ]}
+        >
+          {item.services?.map((service) => (
+            <Text style={{ textAlign: "justify" }}>{service} - </Text>
+          ))}
+        </Text>
+      </View>
+    );
 };
 const Home = () => {
   const renderItem = ({ item }: { item: ngo }) => <Item item={item} />;
-
   return (
     <ScrollView
       style={{
@@ -52,7 +82,10 @@ const Home = () => {
         keyExtractor={(item) => item.key}
         numColumns={2}
         centerContent={true}
-        columnWrapperStyle={{ display: "flex", justifyContent: "space-around" }}
+        columnWrapperStyle={{
+          display: "flex",
+          justifyContent: "space-around",
+        }}
         contentContainerStyle={{ flexGrow: 1 }}
       />
     </ScrollView>
@@ -70,21 +103,32 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   information: {
-    borderBottomWidth: 1,
-    borderBottomColor: "gray",
-    borderBottomLeftRadius: 25,
-    borderBottomRightRadius: 25,
+    // borderBottomWidth: 1,
+    // borderBottomColor: "gray",
+    // borderBottomLeftRadius: 25,
+    // borderBottomRightRadius: 25,
+    color: "gray",
+    fontSize: 18,
+    marginBottom: 5,
+    marginLeft: 4,
+    // paddingBottom: 10,
+    width: "100%",
+  },
+
+  name: {
+    // fontWeight: "bold",
+    width: "100%",
+    fontSize: 28,
+    marginBottom: 5,
+    marginLeft: 4,
+    // width: 120,
+  },
+  services: {
+    color: "gray",
     fontSize: 18,
     marginBottom: 10,
     marginLeft: 4,
     paddingBottom: 10,
-    width: "100%",
-  },
-  name: {
-    fontWeight: "bold",
-    fontSize: 24,
-    marginBottom: 5,
-    marginLeft: 4,
-    width: 120,
+    width: "90%",
   },
 });
