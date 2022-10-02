@@ -17,19 +17,18 @@ import {
 } from "@expo-google-fonts/roboto";
 
 interface ngo {
-  key: string;
+  _id: string;
   name: string;
   logo: string;
-  services?: string[];
+  services: string[];
   information?: string;
   address?: string;
   telephones?: string[];
 }
 
 const Item = ({ item }: { item: ngo }) => {
-  // console.log(fontsLodaded);
   const windowWidth = Dimensions.get("window").width;
-  const itemWidth = windowWidth / 2 - 10;
+  const itemWidth = windowWidth - 10;
   let [fontsLodaded] = useFonts({
     Roboto_500Medium,
     Roboto_900Black,
@@ -42,15 +41,23 @@ const Item = ({ item }: { item: ngo }) => {
           width: itemWidth,
           ...styles.container,
         }}
+        key={item._id}
       >
-        <Image source={require("../assets/unhcr.png")} style={styles.image} />
-        <Text style={[styles.name, { fontFamily: "Roboto_900Black" }]}>
+        <Image
+          source={require("../assets/unhcr.png")}
+          style={styles.image}
+          key={item._id + " Image"}
+        />
+        <Text
+          style={[styles.name, { fontFamily: "Roboto_900Black" }]}
+          key={item._id + " Text1"}
+        >
           {item.name}
         </Text>
-        <Text style={[styles.information, { fontFamily: "Roboto_500Medium" }]}>
-          {item.information}
-        </Text>
-        <Text style={[styles.information, { fontFamily: "Roboto_500Medium" }]}>
+        <Text
+          style={[styles.information, { fontFamily: "Roboto_500Medium" }]}
+          key={item._id + " Text2"}
+        >
           Services :
         </Text>
 
@@ -59,16 +66,27 @@ const Item = ({ item }: { item: ngo }) => {
             styles.services,
             { fontFamily: "Roboto_500Medium", textAlign: "center" },
           ]}
+          key={item._id + " Text3"}
         >
           {item.services?.map((service) => (
-            <Text style={{ textAlign: "justify" }}>{service} - </Text>
+            <Text
+              style={{ textAlign: "justify" }}
+              key={item._id + " Text 4" + service}
+            >
+              {service}{" "}
+              {item.services?.length - 1 !== item.services?.indexOf(service)
+                ? "- "
+                : ""}
+            </Text>
           ))}
         </Text>
       </View>
     );
 };
 const Home = () => {
-  const renderItem = ({ item }: { item: ngo }) => <Item item={item} />;
+  const renderItem = ({ item }: { item: ngo }) => (
+    <Item item={item} key={item._id} />
+  );
   return (
     <ScrollView
       style={{
@@ -79,14 +97,9 @@ const Home = () => {
       <FlatList
         data={ngos}
         renderItem={renderItem}
-        keyExtractor={(item) => item.key}
-        numColumns={2}
+        keyExtractor={(item) => item._id}
+        numColumns={1}
         centerContent={true}
-        columnWrapperStyle={{
-          display: "flex",
-          justifyContent: "space-around",
-        }}
-        contentContainerStyle={{ flexGrow: 1 }}
       />
     </ScrollView>
   );
@@ -95,33 +108,25 @@ const Home = () => {
 export default Home;
 
 const styles = StyleSheet.create({
-  container: { marginLeft: 4.5, marginRight: 4.5 },
+  container: { flex: 1, marginLeft: 4.5, marginRight: 4.5 },
   image: {
     width: "100%",
-    height: 180,
+    height: 220,
     borderRadius: 15,
     marginBottom: 10,
   },
   information: {
-    // borderBottomWidth: 1,
-    // borderBottomColor: "gray",
-    // borderBottomLeftRadius: 25,
-    // borderBottomRightRadius: 25,
-    color: "gray",
     fontSize: 18,
     marginBottom: 5,
     marginLeft: 4,
-    // paddingBottom: 10,
     width: "100%",
   },
 
   name: {
-    // fontWeight: "bold",
     width: "100%",
     fontSize: 28,
     marginBottom: 5,
     marginLeft: 4,
-    // width: 120,
   },
   services: {
     color: "gray",

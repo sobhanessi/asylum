@@ -1,8 +1,8 @@
 interface ngos {
-  key: string;
+  _id: string;
   name: string;
   logo: string;
-  services?: string[];
+  services: string[];
   information?: string;
   address?: string;
   telephones?: string[];
@@ -10,7 +10,7 @@ interface ngos {
 
 const ngos: ngos[] = [
   {
-    key: "1",
+    _id: "1",
     name: "made up 1",
     logo: "logo.png",
     services: ["Psycho social", "Sports", "Lawyer"],
@@ -20,7 +20,7 @@ const ngos: ngos[] = [
     telephones: ["004915123516042"],
   },
   {
-    key: "2",
+    _id: "2",
     name: "made up 2",
     logo: "logo.png",
     services: ["Psycho social", "Sports", "Lawyer"],
@@ -30,7 +30,7 @@ const ngos: ngos[] = [
     telephones: ["004915123516042"],
   },
   {
-    key: "3",
+    _id: "3",
     name: "made up 3",
     logo: "logo.png",
     services: ["Psycho social", "Sports", "Lawyer"],
@@ -40,7 +40,7 @@ const ngos: ngos[] = [
     telephones: ["004915123516042"],
   },
   {
-    key: "4",
+    _id: "4",
     name: "made up 4",
     logo: "logo.png",
     services: ["Psycho social", "Sports", "Lawyer"],
@@ -50,7 +50,7 @@ const ngos: ngos[] = [
     telephones: ["004915123516042"],
   },
   {
-    key: "5",
+    _id: "5",
     name: "made up 5",
     logo: "logo.png",
     services: ["Psycho social", "Sports", "Lawyer"],
@@ -60,7 +60,7 @@ const ngos: ngos[] = [
     telephones: ["004915123516042"],
   },
   {
-    key: "6",
+    _id: "6",
     name: "made up 6",
     logo: "logo.png",
     services: ["Psycho social", "Sports", "Lawyer"],
@@ -70,7 +70,7 @@ const ngos: ngos[] = [
     telephones: ["004915123516042"],
   },
   {
-    key: "7",
+    _id: "7",
     name: "made up 7",
     logo: "logo.png",
     services: ["Psycho social", "Sports", "Lawyer"],
