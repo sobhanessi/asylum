@@ -7,7 +7,8 @@ import React from "react";
 import { MAIN_BOTTOM_NAVIGATION_COLOR, SCREEN_OPTION } from "./theme";
 import { StyleSheet } from "react-native";
 import Home from "./screens/Home";
-import NGO from "./screens/NGO";
+// import NGO from "./screens/NGO";
+import Messages from "./screens/Message";
 
 const Tab = createBottomTabNavigator();
 
@@ -31,14 +32,13 @@ const Navigation = () => {
               ) : (
                 <Ionicons name="log-in-outline" size={32} />
               );
+            } else if (route.name === "Messaging") {
+              return focused ? (
+                <Ionicons name="mail" size={32} />
+              ) : (
+                <Ionicons name="mail-outline" size={32} />
+              );
             }
-            // else if (route.name === "NGO") {
-            //   return focused ? (
-            //     <Ionicons name="information-circle" size={32} />
-            //   ) : (
-            //     <Ionicons name="information-circle-outline" size={32} />
-            //   );
-            // }
           },
           tabBarStyle: {
             borderTopRightRadius: 25,
@@ -58,7 +58,11 @@ const Navigation = () => {
           options={SCREEN_OPTION}
         />
         <Tab.Screen name="Home" component={Home} options={SCREEN_OPTION} />
-        {/* <Tab.Screen name="NGO" component={NGO} options={SCREEN_OPTION} /> */}
+        <Tab.Screen
+          name="Messaging"
+          component={Messages}
+          options={SCREEN_OPTION}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );

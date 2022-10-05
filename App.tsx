@@ -8,12 +8,12 @@ import { StyleSheet } from "react-native";
 
 export default function App() {
   return (
-    <Provider store={store}>
-      <SafeAreaView style={styles.container}>
-        <StatusBar backgroundColor={MAIN_BACKGROUND_COLOR} />
-        <Navigation />
-      </SafeAreaView>
-    </Provider>
+    // <Provider store={store}>
+    <SafeAreaView style={styles.container}>
+      <StatusBar backgroundColor={MAIN_BACKGROUND_COLOR} />
+      <Navigation />
+    </SafeAreaView>
+    // </Provider>
   );
 }
 
