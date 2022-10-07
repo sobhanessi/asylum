@@ -26,6 +26,9 @@ interface ngo {
   telephones?: string[];
 }
 
+// TODO : 1. to implement filter in this page.
+// TODO : 2. to implement
+
 const Item = ({ item }: { item: ngo }) => {
   const windowWidth = Dimensions.get("window").width;
   const itemWidth = windowWidth - 10;
