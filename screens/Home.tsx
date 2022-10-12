@@ -32,11 +32,11 @@ interface ngo {
 const Item = ({ item }: { item: ngo }) => {
   const windowWidth = Dimensions.get("window").width;
   const itemWidth = windowWidth - 10;
-  let [fontsLodaded] = useFonts({
+  let [fontsLoaded] = useFonts({
     Roboto_500Medium,
     Roboto_900Black,
   });
-  if (!fontsLodaded) return <AppLoading />;
+  if (!fontsLoaded) return <AppLoading />;
   else
     return (
       <View
