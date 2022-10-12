@@ -95,8 +95,8 @@ const Home = () => {
       style={{
         flex: 1,
       }}
-      horizontal={true}
     >
+      <Text style={{ flex: 1 }}>filter</Text>
       <FlatList
         data={ngos}
         renderItem={renderItem}
@@ -113,30 +113,33 @@ export default Home;
 const styles = StyleSheet.create({
   container: { flex: 1, marginLeft: 4.5, marginRight: 4.5 },
   image: {
-    width: "100%",
-    height: 220,
     borderRadius: 15,
-    marginBottom: 10,
+    height: 220,
+    width: "100%",
   },
   information: {
     fontSize: 18,
     marginBottom: 5,
-    marginLeft: 4,
+    paddingLeft: 15,
+    top: -50,
     width: "100%",
   },
 
   name: {
-    width: "100%",
+    backgroundColor: "white",
     fontSize: 28,
-    marginBottom: 5,
-    marginLeft: 4,
+    opacity: 0.7,
+    paddingBottom: 12,
+    paddingLeft: 15,
+    paddingTop: 5,
+    top: -55,
+    width: "100%",
+    zIndex: 1,
   },
   services: {
     color: "gray",
     fontSize: 18,
-    marginBottom: 10,
-    marginLeft: 4,
-    paddingBottom: 10,
+    top: -50,
     width: "90%",
   },
 });
