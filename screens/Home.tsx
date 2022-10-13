@@ -5,9 +5,9 @@ import {
   Dimensions,
   FlatList,
   Image,
-  ScrollView,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from "react-native";
 import {
@@ -15,6 +15,8 @@ import {
   Roboto_500Medium,
   useFonts,
 } from "@expo-google-fonts/roboto";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { useNavigation } from "@react-navigation/native";
 
 interface ngo {
   _id: string;
@@ -26,20 +28,23 @@ interface ngo {
   telephones?: string[];
 }
 
-// TODO : 1. to implement filter in this page.
-// TODO : 2. to implement
-
 const Item = ({ item }: { item: ngo }) => {
+  const navigation = useNavigation();
+
   const windowWidth = Dimensions.get("window").width;
   const itemWidth = windowWidth - 10;
   let [fontsLoaded] = useFonts({
     Roboto_500Medium,
     Roboto_900Black,
   });
+
+  const onPress = () => navigation.navigate("NGO", { item: item });
+
   if (!fontsLoaded) return <AppLoading />;
   else
     return (
-      <View
+      <TouchableOpacity
+        onPress={onPress}
         style={{
           width: itemWidth,
           ...styles.container,
@@ -83,7 +88,7 @@ const Item = ({ item }: { item: ngo }) => {
             </Text>
           ))}
         </Text>
-      </View>
+      </TouchableOpacity>
     );
 };
 const Home = () => {
@@ -91,12 +96,14 @@ const Home = () => {
     <Item item={item} key={item._id} />
   );
   return (
-    <ScrollView
+    <View
       style={{
         flex: 1,
       }}
     >
-      <Text style={{ flex: 1 }}>filter</Text>
+      <View>
+        <Text style={{ flex: 1 }}>filter</Text>
+      </View>
       <FlatList
         data={ngos}
         renderItem={renderItem}
@@ -104,7 +111,7 @@ const Home = () => {
         numColumns={1}
         centerContent={true}
       />
-    </ScrollView>
+    </View>
   );
 };
 
@@ -114,7 +121,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, marginLeft: 4.5, marginRight: 4.5 },
   image: {
     borderRadius: 15,
-    height: 220,
+    height: 260,
     width: "100%",
   },
   information: {

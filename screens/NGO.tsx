@@ -1,10 +1,20 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const NGO = () => {
+interface ngo {
+  _id: string;
+  name: string;
+  logo: string;
+  services: string[];
+  information?: string;
+  address?: string;
+  telephones?: string[];
+}
+
+const NGO = ({ item }: { item: ngo }) => {
   return (
     <View>
-      <Text>NGO</Text>
+      <Text>NGO , {item.name}</Text>
     </View>
   );
 };

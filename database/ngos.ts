@@ -11,7 +11,7 @@ interface ngos {
 const ngos: ngos[] = [
   {
     _id: "1",
-    name: "made up 1",
+    name: "UNHCR 1",
     logo: "logo.png",
     services: ["Psycho social", "Sports", "Lawyer"],
     information:
@@ -21,7 +21,7 @@ const ngos: ngos[] = [
   },
   {
     _id: "2",
-    name: "made up 2",
+    name: "UNHCR 2",
     logo: "logo.png",
     services: ["Psycho social", "Sports", "Lawyer"],
     information:
@@ -31,7 +31,7 @@ const ngos: ngos[] = [
   },
   {
     _id: "3",
-    name: "made up 3",
+    name: "UNHCR 3",
     logo: "logo.png",
     services: ["Psycho social", "Sports", "Lawyer"],
     information:
@@ -41,7 +41,7 @@ const ngos: ngos[] = [
   },
   {
     _id: "4",
-    name: "made up 4",
+    name: "UNHCR 4",
     logo: "logo.png",
     services: ["Psycho social", "Sports", "Lawyer"],
     information:
@@ -51,7 +51,7 @@ const ngos: ngos[] = [
   },
   {
     _id: "5",
-    name: "made up 5",
+    name: "UNHCR 5",
     logo: "logo.png",
     services: ["Psycho social", "Sports", "Lawyer"],
     information:
@@ -61,7 +61,7 @@ const ngos: ngos[] = [
   },
   {
     _id: "6",
-    name: "made up 6",
+    name: "UNHCR 6",
     logo: "logo.png",
     services: ["Psycho social", "Sports", "Lawyer"],
     information:
@@ -71,7 +71,7 @@ const ngos: ngos[] = [
   },
   {
     _id: "7",
-    name: "made up 7",
+    name: "UNHCR 7",
     logo: "logo.png",
     services: ["Psycho social", "Sports", "Lawyer"],
     information:
