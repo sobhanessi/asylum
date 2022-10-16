@@ -1,15 +1,13 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Home from "./screens/Home";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import LoginPage from "./screens/LoginPage";
-import { NavigationContainer } from "@react-navigation/native";
-import React from "react";
 import { MAIN_BOTTOM_NAVIGATION_COLOR, SCREEN_OPTION } from "./theme";
-import { StyleSheet } from "react-native";
-import Home from "./screens/Home";
+import { NavigationContainer } from "@react-navigation/native";
 import NGO from "./screens/NGO";
-// import NGO from "./screens/NGO";
-// import Messages from "./screens/Message";
+import React from "react";
+import { StyleSheet } from "react-native";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -18,7 +16,11 @@ const StackScreen = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Main" component={Navigation} />
+        <Stack.Screen
+          name="Main"
+          component={Navigation}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen name="NGO" component={NGO} />
       </Stack.Navigator>
     </NavigationContainer>

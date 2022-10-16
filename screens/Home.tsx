@@ -16,20 +16,10 @@ import {
   useFonts,
 } from "@expo-google-fonts/roboto";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { useNavigation } from "@react-navigation/native";
+import { ngo, RootStackParamList } from "../types";
 
-interface ngo {
-  _id: string;
-  name: string;
-  logo: string;
-  services: string[];
-  information?: string;
-  address?: string;
-  telephones?: string[];
-}
-
-const Item = ({ item }: { item: ngo }) => {
-  const navigation = useNavigation();
+const Item = ({ item, navigation }: { item: ngo; navigation: any }) => {
+  // const navigation = useNavigation();
 
   const windowWidth = Dimensions.get("window").width;
   const itemWidth = windowWidth - 10;
@@ -38,7 +28,9 @@ const Item = ({ item }: { item: ngo }) => {
     Roboto_900Black,
   });
 
-  const onPress = () => navigation.navigate("NGO", { item: item });
+  const onPress = () => {
+    navigation.push("NGO", { item: item });
+  };
 
   if (!fontsLoaded) return <AppLoading />;
   else
@@ -91,9 +83,9 @@ const Item = ({ item }: { item: ngo }) => {
       </TouchableOpacity>
     );
 };
-const Home = () => {
+const Home = ({ navigation }: { navigation: any }) => {
   const renderItem = ({ item }: { item: ngo }) => (
-    <Item item={item} key={item._id} />
+    <Item item={item} key={item._id} navigation={navigation} />
   );
   return (
     <View
