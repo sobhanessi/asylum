@@ -1,5 +1,6 @@
 import AppLoading from "expo-app-loading";
 import ngos from "../database/ngos";
+import { ngo, RootStackParamList } from "../types";
 import React from "react";
 import {
   Dimensions,
@@ -15,12 +16,14 @@ import {
   Roboto_500Medium,
   useFonts,
 } from "@expo-google-fonts/roboto";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { ngo, RootStackParamList } from "../types";
 
-const Item = ({ item, navigation }: { item: ngo; navigation: any }) => {
-  // const navigation = useNavigation();
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
+const navigation =
+  useNavigation<NativeStackNavigationProp<RootStackParamList, "NGO">>();
+
+const Item = ({ item }: { item: ngo }) => {
   const windowWidth = Dimensions.get("window").width;
   const itemWidth = windowWidth - 10;
   let [fontsLoaded] = useFonts({
@@ -29,7 +32,7 @@ const Item = ({ item, navigation }: { item: ngo; navigation: any }) => {
   });
 
   const onPress = () => {
-    navigation.push("NGO", { item: item });
+    navigation.navigate("NGO", { item: item });
   };
 
   if (!fontsLoaded) return <AppLoading />;
@@ -83,9 +86,9 @@ const Item = ({ item, navigation }: { item: ngo; navigation: any }) => {
       </TouchableOpacity>
     );
 };
-const Home = ({ navigation }: { navigation: any }) => {
+const Home = () => {
   const renderItem = ({ item }: { item: ngo }) => (
-    <Item item={item} key={item._id} navigation={navigation} />
+    <Item item={item} key={item._id} />
   );
   return (
     <View

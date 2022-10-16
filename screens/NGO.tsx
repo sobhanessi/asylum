@@ -14,9 +14,8 @@ import {
   Roboto_900Black_Italic,
   useFonts,
 } from "@expo-google-fonts/roboto";
-import { ngo } from "../types";
 
-const NGO = ({ route }: any) => {
+const NGO = ({ route }: { route: any }) => {
   const { _id, address, information, logo, name, services, telephone } =
     route.params.item;
 
