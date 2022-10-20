@@ -20,10 +20,10 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-const navigation =
-  useNavigation<NativeStackNavigationProp<RootStackParamList, "NGO">>();
-
 const Item = ({ item }: { item: ngo }) => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList, "NGO">>();
+  // useNavigation();
   const windowWidth = Dimensions.get("window").width;
   const itemWidth = windowWidth - 10;
   let [fontsLoaded] = useFonts({

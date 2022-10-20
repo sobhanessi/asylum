@@ -29,7 +29,6 @@ const StackScreen = () => {
 
 const Navigation = () => {
   return (
-    // <NavigationContainer>
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
@@ -70,10 +69,7 @@ const Navigation = () => {
     >
       <Tab.Screen name="Login" component={LoginPage} options={SCREEN_OPTION} />
       <Tab.Screen name="Home" component={Home} options={SCREEN_OPTION} />
-      {/* <Stack.Screen name="NGO" component={NGO} /> */}
-      {/* <Tab.Screen name="NGO" component={NGO} options={SCREEN_OPTION} /> */}
     </Tab.Navigator>
-    // </NavigationContainer>
   );
 };
 
