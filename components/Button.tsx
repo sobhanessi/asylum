@@ -1,25 +1,38 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Button } from "react-native-paper";
 import React from "react";
 import { SHADOW } from "../theme";
+import { StyleSheet, Text, View } from "react-native";
 
 interface props {
   buttonStyle: object;
   textStyle: object;
   text: string;
+  icon: string;
   onPress: any;
 }
 
-const Button = ({ buttonStyle, textStyle, text, onPress }: props) => {
+const LoginPageButtons = ({
+  buttonStyle,
+  textStyle,
+  text,
+  onPress,
+  icon,
+}: props) => {
   return (
     <View style={styles.container}>
-      <Pressable style={[buttonStyle, styles.button]} onPress={onPress}>
+      <Button
+        mode="contained"
+        style={[buttonStyle, styles.button]}
+        onPress={onPress}
+        icon={icon}
+      >
         <Text style={textStyle}>{text}</Text>
-      </Pressable>
+      </Button>
     </View>
   );
 };
 
-export default Button;
+export default LoginPageButtons;
 
 const styles = StyleSheet.create({
   button: {

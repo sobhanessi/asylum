@@ -1,9 +1,9 @@
-import Button from "../components/Button";
 import { Formik } from "formik";
-import { MAIN_BACKGROUND_COLOR, MAIN_BUTTON_COLOR, SHADOW } from "../theme";
+import { MAIN_BACKGROUND_COLOR, MAIN_BUTTON_COLOR } from "../theme";
 import OneLineInput from "../components/OneLineInput";
 import { View, StyleSheet, Image, ScrollView } from "react-native";
 import React from "react";
+import LoginPageButtons from "../components/Button";
 
 const LoginPage = () => {
   const onPressLogin = () => {
@@ -31,8 +31,9 @@ const LoginPage = () => {
               onBlur={handleBlur("email")}
               value={values.email}
               style={styles.loginInput}
-              placeholder="Your Email"
+              // placeholder="Your Email"
               keyboardType="email-address"
+              label="Email"
             />
 
             <OneLineInput
@@ -41,23 +42,26 @@ const LoginPage = () => {
               value={values.password}
               style={styles.loginInput}
               secureTextEntry={true}
-              placeholder="Your Password"
+              // placeholder="Your Password"
               keyboardType="default"
+              label="Password"
             />
-            <Button
+            <LoginPageButtons
               text="Login"
               onPress={handleSubmit}
               textStyle={styles.text}
               buttonStyle={styles.loginButton}
+              icon="login"
             />
           </View>
         )}
       </Formik>
-      <Button
+      <LoginPageButtons
         text="Fogot Password ?"
         onPress={onPressForgotPassword}
         textStyle={styles.text}
         buttonStyle={styles.forgotPasswordButton}
+        icon="lock"
       />
     </ScrollView>
   );
@@ -66,16 +70,16 @@ const LoginPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: MAIN_BACKGROUND_COLOR,
+    // backgroundColor: MAIN_BACKGROUND_COLOR,
     flexDirection: "column",
     // justifyContent: "center",
   },
 
   forgotPasswordButton: {
-    backgroundColor: MAIN_BUTTON_COLOR,
+    // backgroundColor: MAIN_BUTTON_COLOR,
   },
   loginButton: {
-    backgroundColor: MAIN_BUTTON_COLOR,
+    // backgroundColor: MAIN_BUTTON_COLOR,
     // shadowColor: "#171717",
   },
 

@@ -1,5 +1,5 @@
 import { MAIN_BACKGROUND_COLOR } from "./theme";
-import Navigation, { StackScreen } from "./Navigation";
+import Navigation from "./Navigation";
 // import { Provider } from "react-redux";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
@@ -11,8 +11,8 @@ export default function App() {
     // <Provider store={store}>
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={MAIN_BACKGROUND_COLOR} />
-      {/* <Navigation /> */}
-      <StackScreen />
+      <Navigation />
+      {/* <StackScreen /> */}
     </SafeAreaView>
     // </Provider>
   );
