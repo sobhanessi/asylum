@@ -2,6 +2,7 @@ export type RootStackParamList = {
   Home: undefined;
   Login: undefined;
   NGO: { item: ngo };
+  Filter: undefined;
 };
 
 export interface ngo {

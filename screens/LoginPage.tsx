@@ -3,7 +3,7 @@ import { MAIN_BACKGROUND_COLOR, MAIN_BUTTON_COLOR } from "../theme";
 import OneLineInput from "../components/OneLineInput";
 import { View, StyleSheet, Image, ScrollView } from "react-native";
 import React from "react";
-import LoginPageButtons from "../components/Button";
+import LoginPageButtons from "../components/LoginPageButtons";
 
 const LoginPage = () => {
   const onPressLogin = () => {

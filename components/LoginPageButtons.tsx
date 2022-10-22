@@ -7,7 +7,7 @@ interface props {
   buttonStyle: object;
   textStyle: object;
   text: string;
-  icon: string;
+  icon?: string;
   onPress: any;
 }
 
@@ -16,7 +16,7 @@ const LoginPageButtons = ({
   textStyle,
   text,
   onPress,
-  icon,
+  icon = "",
 }: props) => {
   return (
     <View style={styles.container}>

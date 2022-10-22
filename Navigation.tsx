@@ -1,11 +1,12 @@
 import Home from "./screens/Home";
+import { BottomNavigation } from "react-native-paper";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import FilterPage from "./screens/FilterPage";
 import LoginPage from "./screens/LoginPage";
+import { NavigationContainer } from "@react-navigation/native";
 import NGO from "./screens/NGO";
 import React from "react";
 import { StyleSheet } from "react-native";
-import { BottomNavigation } from "react-native-paper";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Stack = createNativeStackNavigator();
 
@@ -46,6 +47,7 @@ const Navigation = () => {
       <Stack.Navigator>
         <Stack.Screen name="main" component={BottomNav} />
         <Stack.Screen name="NGO" component={NGO} />
+        <Stack.Screen name="Filter" component={FilterPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

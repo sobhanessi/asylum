@@ -5,6 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 // import store from "./redux/store";
 import { StyleSheet } from "react-native";
+import React from "react";
 
 export default function App() {
   return (
