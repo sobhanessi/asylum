@@ -20,7 +20,7 @@ import {
   Roboto_500Medium,
   useFonts,
 } from "@expo-google-fonts/roboto";
-import { Searchbar } from "react-native-paper";
+import { Card, Paragraph, Searchbar, Title } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import LoginPageButtons from "../components/LoginPageButtons";
 // import Navigation from "../Navigation";
@@ -50,43 +50,49 @@ const Item = ({ item }: { item: ngo }) => {
         }}
         key={item._id}
       >
-        <Image
-          source={require("../assets/unhcr.png")}
-          style={styles.image}
-          key={item._id + " Image"}
-        />
-        <Text
-          style={[styles.name, { fontFamily: "Roboto_900Black" }]}
-          key={item._id + " Text1"}
+        <Card
+          // elevation={5}
+          style={{ borderRadius: 25, marginBottom: 10 }}
+          mode="contained"
         >
-          {item.name}
-        </Text>
-        <Text
-          style={[styles.information, { fontFamily: "Roboto_500Medium" }]}
-          key={item._id + " Text2"}
-        >
-          Services :
-        </Text>
-
-        <Text
-          style={[
-            styles.services,
-            { fontFamily: "Roboto_500Medium", textAlign: "center" },
-          ]}
-          key={item._id + " Text3"}
-        >
-          {item.services?.map((service) => (
-            <Text
-              style={{ textAlign: "justify" }}
-              key={item._id + " Text 4" + service}
+          <Card.Cover
+            source={require("../assets/unhcr.png")}
+            style={styles.image}
+          />
+          <Card.Content key={item._id}>
+            <Title
+              style={[styles.name, { fontFamily: "Roboto_900Black" }]}
+              key={item._id + " Text1"}
             >
-              {service}{" "}
-              {item.services?.length - 1 !== item.services?.indexOf(service)
-                ? "- "
-                : ""}
-            </Text>
-          ))}
-        </Text>
+              {item.name}
+            </Title>
+            <Paragraph
+              style={[styles.information, { fontFamily: "Roboto_500Medium" }]}
+              key={item._id + " Text2"}
+            >
+              {item.information}
+            </Paragraph>
+            <Paragraph
+              style={[
+                styles.services,
+                { fontFamily: "Roboto_500Medium", textAlign: "center" },
+              ]}
+              key={item._id + " Text3"}
+            >
+              {item.services?.map((service) => (
+                <Paragraph
+                  style={[styles.services, { textAlign: "justify" }]}
+                  key={item._id + " Text 4" + service}
+                >
+                  {service}{" "}
+                  {item.services?.length - 1 !== item.services?.indexOf(service)
+                    ? "- "
+                    : ""}
+                </Paragraph>
+              ))}
+            </Paragraph>
+          </Card.Content>
+        </Card>
       </TouchableOpacity>
     );
 };
@@ -151,28 +157,29 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   information: {
-    fontSize: 18,
+    fontSize: 22,
     marginBottom: 5,
     paddingLeft: 15,
-    top: -50,
+    // top: -50,
     width: "100%",
   },
 
   name: {
-    backgroundColor: "white",
-    fontSize: 28,
-    opacity: 0.7,
+    // backgroundColor: "white",
+    fontSize: 32,
+    // opacity: 0.7,
     paddingBottom: 12,
     paddingLeft: 15,
-    paddingTop: 5,
-    top: -55,
-    width: "100%",
-    zIndex: 1,
+    marginTop: 15,
+    // top: -55,
+    // width: "100%",
+    // zIndex: 1,
   },
   services: {
     color: "gray",
-    fontSize: 18,
-    top: -50,
+    fontSize: 20,
+    // top: -50,
     width: "90%",
+    marginTop: 10,
   },
 });
