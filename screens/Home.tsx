@@ -20,7 +20,7 @@ import {
   Roboto_500Medium,
   useFonts,
 } from "@expo-google-fonts/roboto";
-import { Card, Paragraph, Searchbar, Title } from "react-native-paper";
+import { Card, Paragraph, Title } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import LoginPageButtons from "../components/LoginPageButtons";
 // import Navigation from "../Navigation";
@@ -98,8 +98,6 @@ const Item = ({ item }: { item: ngo }) => {
 };
 
 const Home = () => {
-  const [searchQuery, setSearchQuery] = React.useState("");
-  const onChangeSearch = (query: string) => setSearchQuery(query);
   const filterNavigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList, "Filter">>();
 
@@ -113,25 +111,13 @@ const Home = () => {
         flex: 1,
       }}
     >
-      <View
-        style={{
-          width: "80%",
-          marginRight: "10%",
-          marginLeft: "10%",
-          marginTop: "5%",
-          marginBottom: "5%",
-        }}
-      >
-        <Searchbar
-          placeholder="Search"
-          onChangeText={onChangeSearch}
-          value={searchQuery}
-        />
-      </View>
       <LoginPageButtons
         text="Filter"
-        textStyle={{}}
-        buttonStyle={{}}
+        textStyle={{
+          fontStyle: "bold",
+          fontSize: 20,
+        }}
+        buttonStyle={{ marginTop: "5%", marginBottom: "5%" }}
         onPress={() => filterNavigation.navigate("Filter")}
       />
       <View style={{ flex: 1 }}>

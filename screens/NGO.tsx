@@ -40,7 +40,7 @@ const NGO = ({ route }: { route: any }) => {
         </Text>
         <Text
           style={[styles.information, { fontFamily: "Roboto_900Black_Italic" }]}
-          key={_id + " Text1"}
+          key={_id + " Text11"}
         >
           {"„ " + information + "“"}
         </Text>
@@ -72,13 +72,13 @@ const NGO = ({ route }: { route: any }) => {
         </Text>
         <Text
           style={[styles.address, { fontFamily: "Roboto_500Medium" }]}
-          key={_id + " Text4"}
+          key={_id + " Text5"}
         >
           Address :
         </Text>
         <Text
           style={[styles.information, { fontFamily: "Roboto_900Black" }]}
-          key={_id + " Text5"}
+          key={_id + " Text6"}
         >
           {address}
         </Text>

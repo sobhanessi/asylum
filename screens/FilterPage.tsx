@@ -1,13 +1,29 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-
-// inja bayad filter ro benevisam va moshakhassatesh ro enteghal bedam
-// be safheye ghabl va dar unja saveshoon konam.
+import { Searchbar } from "react-native-paper";
+import { useRoute } from "@react-navigation/native";
 
 const FilterPage = () => {
+  const [searchQuery, setSearchQuery] = React.useState("");
+  const onChangeSearch = (query: string) => setSearchQuery(query);
+
   return (
     <View>
-      <Text>FilterPage</Text>
+      <View
+        style={{
+          width: "80%",
+          marginRight: "10%",
+          marginLeft: "10%",
+          marginTop: "5%",
+          marginBottom: "5%",
+        }}
+      >
+        <Searchbar
+          placeholder="Search"
+          onChangeText={onChangeSearch}
+          value={searchQuery}
+        />
+      </View>
     </View>
   );
 };
