@@ -21,7 +21,7 @@ import {
   useFonts,
 } from "@expo-google-fonts/roboto";
 import { Card, Paragraph, Title } from "react-native-paper";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import LoginPageButtons from "../components/LoginPageButtons";
 // import Navigation from "../Navigation";
 
@@ -105,6 +105,11 @@ const Home = () => {
     <Item item={item} key={item._id} />
   );
 
+  const params = useRoute();
+  // console.log(params.params?.filter);
+  const { name, counselor, lawyer, psychologist, socialWorker } =
+    params.params?.filter;
+
   return (
     <View
       style={{
@@ -146,25 +151,18 @@ const styles = StyleSheet.create({
     fontSize: 22,
     marginBottom: 5,
     paddingLeft: 15,
-    // top: -50,
     width: "100%",
   },
 
   name: {
-    // backgroundColor: "white",
     fontSize: 32,
-    // opacity: 0.7,
     paddingBottom: 12,
     paddingLeft: 15,
     marginTop: 15,
-    // top: -55,
-    // width: "100%",
-    // zIndex: 1,
   },
   services: {
     color: "gray",
     fontSize: 20,
-    // top: -50,
     width: "90%",
     marginTop: 10,
   },

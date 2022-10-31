@@ -45,7 +45,7 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="main" component={BottomNav} />
+        <Stack.Screen name="Main" component={BottomNav} />
         <Stack.Screen name="NGO" component={NGO} />
         <Stack.Screen name="Filter" component={FilterPage} />
       </Stack.Navigator>

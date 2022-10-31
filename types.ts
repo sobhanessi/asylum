@@ -1,5 +1,7 @@
 export type RootStackParamList = {
-  Home: undefined;
+  Home: {
+    filter: filter;
+  };
   Login: undefined;
   NGO: { item: ngo };
   Filter: undefined;
@@ -13,4 +15,12 @@ export interface ngo {
   information?: string;
   address?: string;
   telephones?: string[];
+}
+
+export interface filter {
+  name: string;
+  counselor: boolean;
+  lawyer: boolean;
+  psychologist: boolean;
+  socialWorker: boolean;
 }

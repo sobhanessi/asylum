@@ -1,15 +1,23 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Chip, Searchbar } from "react-native-paper";
+import LoginPageButtons from "../components/LoginPageButtons";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../types";
 // import { useRoute } from "@react-navigation/native";
 
 const FilterPage = () => {
   const [searchQuery, setSearchQuery] = React.useState("");
   const onChangeSearch = (query: string) => setSearchQuery(query);
+
   const [selectPsychologist, setSelectPsychologist] = React.useState(false);
   const [selectSocialWorker, setSelectSocialWorker] = React.useState(false);
   const [selectLawyer, setSelectLawyer] = React.useState(false);
   const [selectCounselor, setSelectCounselor] = React.useState(false);
+
+  const filterNavigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList, "Home">>();
 
   return (
     <View>
@@ -29,6 +37,7 @@ const FilterPage = () => {
         />
       </View>
       <View style={styles.chipMain}>
+        <Text style={{ marginBottom: "4%", fontSize: 22 }}>Filter By :</Text>
         <View style={styles.chipRow}>
           <Chip
             style={styles.chip}
@@ -69,6 +78,28 @@ const FilterPage = () => {
             Social Worker
           </Chip>
         </View>
+        <View>
+          <LoginPageButtons
+            text="Done"
+            textStyle={{
+              fontStyle: "bold",
+              fontSize: 20,
+            }}
+            buttonStyle={{ marginTop: "5%", marginBottom: "5%" }}
+            onPress={() =>
+              filterNavigation.navigate("Main", {
+                screen: "Home",
+                filter: {
+                  name: searchQuery,
+                  counselor: selectCounselor,
+                  lawyer: selectLawyer,
+                  psychologist: selectPsychologist,
+                  socialWorker: selectSocialWorker,
+                },
+              })
+            }
+          />
+        </View>
       </View>
     </View>
   );
@@ -77,7 +108,7 @@ const FilterPage = () => {
 export default FilterPage;
 
 const styles = StyleSheet.create({
-  chip: { width: 150, marginBottom: "3%" },
+  chip: { width: 150, marginBottom: "4%" },
   chipMain: {
     width: "80%",
     marginRight: "10%",
@@ -86,6 +117,6 @@ const styles = StyleSheet.create({
   chipRow: {
     display: "flex",
     justifyContent: "space-around",
-    flexDirection: "row",
+    flexDirection: "column",
   },
 });
