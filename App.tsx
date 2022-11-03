@@ -6,6 +6,8 @@ import { StatusBar } from "expo-status-bar";
 // import store from "./redux/store";
 import { StyleSheet } from "react-native";
 import React from "react";
+import { FilterPageContext } from "./context/context";
+import FilterPageState from "./context/filterPageStates";
 
 export default function App() {
   // 1. inja bayad user ro az storage begiram va baadesh loadesh konam...
@@ -14,13 +16,46 @@ export default function App() {
   // 3. dar marhaleye konooni faghat rooye ye app e static tamarkoz konam.
   // 4. ghabeliate search ro faraham konam ke user ha betoonan un chizi...
   // ke mikhan ro peyda konan.
+
+  const {
+    searchQuery,
+    onChangeSearch,
+    selectPsychologist,
+    setSelectPsychologist,
+    selectSocialWorker,
+    setSelectSocialWorker,
+    selectLawyer,
+    setSelectLawyer,
+    selectCounselor,
+    setSelectCounselor,
+    selectLocation,
+    setSelectLocation,
+  } = FilterPageState();
+
   return (
     // <Provider store={store}>
-    <SafeAreaView style={styles.container}>
-      <StatusBar backgroundColor={MAIN_BACKGROUND_COLOR} />
-      <Navigation />
-      {/* <StackScreen /> */}
-    </SafeAreaView>
+    <FilterPageContext.Provider
+      value={{
+        searchQuery,
+        onChangeSearch,
+        selectPsychologist,
+        setSelectPsychologist,
+        selectSocialWorker,
+        setSelectSocialWorker,
+        selectLawyer,
+        setSelectLawyer,
+        selectCounselor,
+        setSelectCounselor,
+        selectLocation,
+        setSelectLocation,
+      }}
+    >
+      <SafeAreaView style={styles.container}>
+        <StatusBar backgroundColor={MAIN_BACKGROUND_COLOR} />
+        <Navigation />
+        {/* <StackScreen /> */}
+      </SafeAreaView>
+    </FilterPageContext.Provider>
     // </Provider>
   );
 }

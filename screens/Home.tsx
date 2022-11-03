@@ -13,7 +13,7 @@ import {
 
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import ngos from "../database/ngos";
-import { ngo, RootStackParamList } from "../types";
+import { filterPage, ngo, RootStackParamList } from "../types";
 import React from "react";
 import {
   Roboto_900Black,
@@ -107,8 +107,11 @@ const Home = () => {
 
   const params = useRoute();
   // console.log(params.params?.filter);
-  const { name, counselor, lawyer, psychologist, socialWorker } =
-    params.params?.filter;
+
+  const { name, counselor, lawyer, psychologist, socialWorker }: filterPage =
+    params.params ? params.params?.filter : {};
+
+  console.log(name);
 
   return (
     <View

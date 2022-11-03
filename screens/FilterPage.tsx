@@ -5,19 +5,26 @@ import LoginPageButtons from "../components/LoginPageButtons";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../types";
+import { FilterPageContext } from "../context/context";
 // import { useRoute } from "@react-navigation/native";
 
 const FilterPage = () => {
-  const [searchQuery, setSearchQuery] = React.useState("");
-  const onChangeSearch = (query: string) => setSearchQuery(query);
-
-  const [selectPsychologist, setSelectPsychologist] = React.useState(false);
-  const [selectSocialWorker, setSelectSocialWorker] = React.useState(false);
-  const [selectLawyer, setSelectLawyer] = React.useState(false);
-  const [selectCounselor, setSelectCounselor] = React.useState(false);
-
   const filterNavigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList, "Home">>();
+  const {
+    searchQuery,
+    onChangeSearch,
+    selectPsychologist,
+    setSelectPsychologist,
+    selectSocialWorker,
+    setSelectSocialWorker,
+    selectLawyer,
+    setSelectLawyer,
+    selectCounselor,
+    setSelectCounselor,
+    selectLocation,
+    setSelectLocation,
+  } = React.useContext(FilterPageContext);
 
   return (
     <View>
