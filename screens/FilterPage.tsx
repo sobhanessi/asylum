@@ -10,7 +10,7 @@ import { FilterPageContext } from "../context/context";
 
 const FilterPage = () => {
   const filterNavigation =
-    useNavigation<NativeStackNavigationProp<RootStackParamList, "Home">>();
+    useNavigation<NativeStackNavigationProp<RootStackParamList, "Main">>();
   const {
     searchQuery,
     onChangeSearch,
@@ -102,6 +102,7 @@ const FilterPage = () => {
                   lawyer: selectLawyer,
                   psychologist: selectPsychologist,
                   socialWorker: selectSocialWorker,
+                  location: selectLocation,
                 },
               })
             }

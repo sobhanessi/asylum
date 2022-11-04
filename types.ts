@@ -1,4 +1,8 @@
 export type RootStackParamList = {
+  Main: {
+    screen: string;
+    filter: filterPage;
+  };
   Home: {
     filter: filterPage;
   };

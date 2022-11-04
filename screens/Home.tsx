@@ -12,6 +12,7 @@ import {
 } from "react-native";
 
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RouteProp } from "@react-navigation/native";
 import ngos from "../database/ngos";
 import { filterPage, ngo, RootStackParamList } from "../types";
 import React from "react";
@@ -105,13 +106,25 @@ const Home = () => {
     <Item item={item} key={item._id} />
   );
 
-  const params = useRoute();
-  // console.log(params.params?.filter);
+  const params = useRoute<RouteProp<RootStackParamList, "Main">>();
 
-  const { name, counselor, lawyer, psychologist, socialWorker }: filterPage =
-    params.params ? params.params?.filter : {};
+  const {
+    name,
+    counselor,
+    lawyer,
+    psychologist,
+    socialWorker,
+    location,
+  }: filterPage = params.params?.filter || {
+    name: "",
+    counselor: false,
+    lawyer: false,
+    psychologist: false,
+    socialWorker: false,
+    location: "",
+  };
 
-  console.log(name);
+  console.log(counselor);
 
   return (
     <View
