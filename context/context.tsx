@@ -5,28 +5,30 @@ interface filterPage {
   searchQuery: string;
   selectCounselor: boolean;
   selectLawyer: boolean;
-  selectLocation: string;
+  selectCity: string;
   selectPsychologist: boolean;
   selectSocialWorker: boolean;
   onChangeSearch: (q: string) => void;
   setSelectCounselor: React.Dispatch<React.SetStateAction<boolean>>;
   setSelectLawyer: React.Dispatch<React.SetStateAction<boolean>>;
-  setSelectLocation: React.Dispatch<React.SetStateAction<string>>;
+  setSelectCity: React.Dispatch<React.SetStateAction<string>>;
   setSelectPsychologist: React.Dispatch<React.SetStateAction<boolean>>;
   setSelectSocialWorker: React.Dispatch<React.SetStateAction<boolean>>;
+  // onValueChange: (i: string, n?: number) => void;
 }
 
 export const FilterPageContext = React.createContext<filterPage>({
   searchQuery: "",
   selectCounselor: false,
   selectLawyer: false,
-  selectLocation: "",
+  selectCity: "",
   selectPsychologist: false,
   selectSocialWorker: false,
   onChangeSearch: () => {},
   setSelectCounselor: () => {},
   setSelectLawyer: () => {},
-  setSelectLocation: () => {},
+  setSelectCity: () => {},
   setSelectPsychologist: () => {},
   setSelectSocialWorker: () => {},
+  // onValueChange: () => {},
 });

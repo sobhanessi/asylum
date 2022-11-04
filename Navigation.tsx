@@ -8,17 +8,20 @@ import NGO from "./screens/NGO";
 import React from "react";
 import { StyleSheet } from "react-native";
 
+// felan niazi be login nist chera ke app gharare static bashe
+// dar marhaleye avval.
+
 const Stack = createNativeStackNavigator();
 
 const BottomNav = () => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    {
-      key: "login",
-      title: "Login",
-      focusedIcon: "login",
-      unfocusedIcon: "login",
-    },
+    // {
+    //   key: "login",
+    //   title: "Login",
+    //   focusedIcon: "login",
+    //   unfocusedIcon: "login",
+    // },
     {
       key: "home",
       title: "Home",
@@ -28,7 +31,7 @@ const BottomNav = () => {
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
-    login: () => <LoginPage />,
+    // login: () => <LoginPage />,
     home: () => <Home />,
   });
 
@@ -45,7 +48,13 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Main" component={BottomNav} />
+        <Stack.Screen
+          name="Main"
+          component={BottomNav}
+          options={{
+            headerShown: false,
+          }}
+        />
         <Stack.Screen name="NGO" component={NGO} />
         <Stack.Screen name="Filter" component={FilterPage} />
       </Stack.Navigator>

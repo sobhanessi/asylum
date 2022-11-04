@@ -1,13 +1,16 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
 import { Chip, Searchbar } from "react-native-paper";
-import LoginPageButtons from "../components/LoginPageButtons";
-import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../types";
 import { FilterPageContext } from "../context/context";
+import germanCities from "../database/germanyCities.json";
+import LoginPageButtons from "../components/LoginPageButtons";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { Picker } from "@react-native-picker/picker";
+import React from "react";
+import { RootStackParamList } from "../types";
+import { useNavigation } from "@react-navigation/native";
+import { StyleSheet, Text, View } from "react-native";
 // import { useRoute } from "@react-navigation/native";
 
+// todo : 1. location ro ezafe bokonam
 const FilterPage = () => {
   const filterNavigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList, "Main">>();
@@ -22,8 +25,8 @@ const FilterPage = () => {
     setSelectLawyer,
     selectCounselor,
     setSelectCounselor,
-    selectLocation,
-    setSelectLocation,
+    selectCity,
+    setSelectCity,
   } = React.useContext(FilterPageContext);
 
   return (
@@ -43,6 +46,32 @@ const FilterPage = () => {
           value={searchQuery}
         />
       </View>
+
+      <View
+        style={{
+          width: "80%",
+          marginRight: "10%",
+          marginLeft: "10%",
+          marginTop: "5%",
+          marginBottom: "5%",
+        }}
+      >
+        <Text style={{ marginBottom: "5%" }}>Select Your City :</Text>
+        <Picker
+          selectedValue={selectCity}
+          onValueChange={(itemValue, itemIndex) => setSelectCity(itemValue)}
+          style={{
+            backgroundColor: "white",
+            borderRadius: 15,
+          }}
+        >
+          <Picker.Item label="Select A City" value="" />
+          {germanCities.map((city) => (
+            <Picker.Item label={city.name} value={city.name} />
+          ))}
+        </Picker>
+      </View>
+
       <View style={styles.chipMain}>
         <Text style={{ marginBottom: "4%", fontSize: 22 }}>Filter By :</Text>
         <View style={styles.chipRow}>
@@ -102,7 +131,7 @@ const FilterPage = () => {
                   lawyer: selectLawyer,
                   psychologist: selectPsychologist,
                   socialWorker: selectSocialWorker,
-                  location: selectLocation,
+                  location: selectCity,
                 },
               })
             }

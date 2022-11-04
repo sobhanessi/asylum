@@ -28,8 +28,8 @@ export default function App() {
     setSelectLawyer,
     selectCounselor,
     setSelectCounselor,
-    selectLocation,
-    setSelectLocation,
+    selectCity,
+    setSelectCity,
   } = FilterPageState();
 
   return (
@@ -46,8 +46,8 @@ export default function App() {
         setSelectLawyer,
         selectCounselor,
         setSelectCounselor,
-        selectLocation,
-        setSelectLocation,
+        selectCity,
+        setSelectCity,
       }}
     >
       <SafeAreaView style={styles.container}>

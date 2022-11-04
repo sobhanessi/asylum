@@ -124,7 +124,7 @@ const Home = () => {
     location: "",
   };
 
-  console.log(counselor);
+  // console.log(params.params?.filter);
 
   return (
     <View

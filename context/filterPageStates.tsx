@@ -8,7 +8,8 @@ export default function FilterPageState() {
   const [selectSocialWorker, setSelectSocialWorker] = React.useState(false);
   const [selectLawyer, setSelectLawyer] = React.useState(false);
   const [selectCounselor, setSelectCounselor] = React.useState(false);
-  const [selectLocation, setSelectLocation] = React.useState("");
+  // const [selectLocation, setSelectLocation] = React.useState("");
+  const [selectCity, setSelectCity] = React.useState("");
 
   return {
     searchQuery,
@@ -21,7 +22,9 @@ export default function FilterPageState() {
     setSelectLawyer,
     selectCounselor,
     setSelectCounselor,
-    selectLocation,
-    setSelectLocation,
+    // selectLocation,
+    // setSelectLocation,
+    selectCity,
+    setSelectCity,
   };
 }
