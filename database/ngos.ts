@@ -3,10 +3,16 @@ interface ngos {
   name: string;
   logo: string;
   services: string[];
-  information?: string;
-  address?: string;
+  information: string;
+  address: address;
   telephones?: string[];
 }
+
+type address = {
+  city: string;
+  state: string;
+  address: string;
+};
 
 const ngos: ngos[] = [
   {
@@ -16,7 +22,11 @@ const ngos: ngos[] = [
     services: ["Psycho social", "Sports", "Lawyer"],
     information:
       "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-    address: "Mochengladbach, 41179, EAE JHQ",
+    address: {
+      city: "Mönchengladbach",
+      state: "Nord-Rhein Westfalen",
+      address: "41179, EAE JHQ",
+    },
     telephones: ["004915123516042"],
   },
   {
@@ -26,7 +36,11 @@ const ngos: ngos[] = [
     services: ["Psycho social", "Sports", "Lawyer"],
     information:
       "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-    address: "Mochengladbach, 41179, EAE JHQ",
+    address: {
+      city: "Mönchengladbach",
+      state: "Nord-Rhein Westfalen",
+      address: "41179, EAE JHQ",
+    },
     telephones: ["004915123516042"],
   },
   {
@@ -36,7 +50,11 @@ const ngos: ngos[] = [
     services: ["Psycho social", "Sports", "Lawyer"],
     information:
       "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-    address: "Mochengladbach, 41179, EAE JHQ",
+    address: {
+      city: "Mönchengladbach",
+      state: "Nord-Rhein Westfalen",
+      address: "41179, EAE JHQ",
+    },
     telephones: ["004915123516042"],
   },
   {
@@ -46,7 +64,11 @@ const ngos: ngos[] = [
     services: ["Psycho social", "Sports", "Lawyer"],
     information:
       "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-    address: "Mochengladbach, 41179, EAE JHQ",
+    address: {
+      city: "Mönchengladbach",
+      state: "Nord-Rhein Westfalen",
+      address: "41179, EAE JHQ",
+    },
     telephones: ["004915123516042"],
   },
   {
@@ -56,7 +78,11 @@ const ngos: ngos[] = [
     services: ["Psycho social", "Sports", "Lawyer"],
     information:
       "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-    address: "Mochengladbach, 41179, EAE JHQ",
+    address: {
+      city: "Mönchengladbach",
+      state: "Nord-Rhein Westfalen",
+      address: "41179, EAE JHQ",
+    },
     telephones: ["004915123516042"],
   },
   {
@@ -66,7 +92,11 @@ const ngos: ngos[] = [
     services: ["Psycho social", "Sports", "Lawyer"],
     information:
       "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-    address: "Mochengladbach, 41179, EAE JHQ",
+    address: {
+      city: "Mönchengladbach",
+      state: "Nord-Rhein Westfalen",
+      address: "41179, EAE JHQ",
+    },
     telephones: ["004915123516042"],
   },
   {
@@ -76,7 +106,11 @@ const ngos: ngos[] = [
     services: ["Psycho social", "Sports", "Lawyer"],
     information:
       "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-    address: "Mochengladbach, 41179, EAE JHQ",
+    address: {
+      city: "Mönchengladbach",
+      state: "Nord-Rhein Westfalen",
+      address: "41179, EAE JHQ",
+    },
     telephones: ["004915123516042"],
   },
 ];

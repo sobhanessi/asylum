@@ -2,7 +2,7 @@ import AppLoading from "expo-app-loading";
 import {
   Image,
   StyleSheet,
-  Text,
+  // Text,
   View,
   Dimensions,
   ScrollView,
@@ -14,6 +14,7 @@ import {
   Roboto_900Black_Italic,
   useFonts,
 } from "@expo-google-fonts/roboto";
+import { Text } from "react-native-paper";
 
 const NGO = ({ route }: { route: any }) => {
   const { _id, address, information, logo, name, services, telephone } =
@@ -60,7 +61,7 @@ const NGO = ({ route }: { route: any }) => {
           ]}
           key={_id + " Text3"}
         >
-          {services?.map((service) => (
+          {services?.map((service: any) => (
             <Text
               style={{ textAlign: "justify" }}
               key={_id + " Text 4" + service}
@@ -80,7 +81,7 @@ const NGO = ({ route }: { route: any }) => {
           style={[styles.information, { fontFamily: "Roboto_900Black" }]}
           key={_id + " Text6"}
         >
-          {address}
+          {address.city},{address.address}
         </Text>
       </ScrollView>
     );
@@ -102,7 +103,9 @@ const styles = StyleSheet.create({
   image: {
     borderRadius: 15,
     height: 350,
-    width: "100%",
+    width: "98%",
+    marginLeft: "1%",
+    marginRight: "1%",
   },
   information: {
     fontSize: 26,

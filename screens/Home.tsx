@@ -1,12 +1,9 @@
 import AppLoading from "expo-app-loading";
 import BottomSheet from "../components/BottomSheet";
 import {
-  Button,
   Dimensions,
   FlatList,
-  Image,
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -21,10 +18,9 @@ import {
   Roboto_500Medium,
   useFonts,
 } from "@expo-google-fonts/roboto";
-import { Card, Paragraph, Title } from "react-native-paper";
+import { Card, Paragraph, Text, Title } from "react-native-paper";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import LoginPageButtons from "../components/LoginPageButtons";
-// import Navigation from "../Navigation";
 
 const Item = ({ item }: { item: ngo }) => {
   const ngoNavigation =
@@ -123,8 +119,30 @@ const Home = () => {
     socialWorker: false,
     location: "",
   };
+  let newNgo = ngos;
 
-  // console.log(params.params?.filter);
+  // in ghesmat ro behtar konam.
+
+  if (name.length) {
+    // in ghesmat ro bayad small case konam va un taraf ro ham ba small case/
+    // barresi konam.
+    newNgo = newNgo.filter((ngo) => ngo.name === name);
+  }
+  if (location.length) {
+    newNgo = ngos.filter((ngo) => ngo.address?.city === location);
+  }
+  if (counselor) {
+    newNgo = newNgo.filter((ngo) => ngo.services.includes("Counselor"));
+  }
+  if (lawyer) {
+    newNgo = newNgo.filter((ngo) => ngo.services.includes("Lawyer"));
+  }
+  if (psychologist) {
+    newNgo = newNgo.filter((ngo) => ngo.services.includes("Psycho social"));
+  }
+  if (socialWorker) {
+    newNgo = newNgo.filter((ngo) => ngo.services.includes("Social Worker"));
+  }
 
   return (
     <View
@@ -142,13 +160,19 @@ const Home = () => {
         onPress={() => filterNavigation.navigate("Filter")}
       />
       <View style={{ flex: 1 }}>
-        <FlatList
-          data={ngos}
-          renderItem={renderItem}
-          keyExtractor={(item) => item._id}
-          numColumns={1}
-          centerContent={true}
-        />
+        {newNgo.length ? (
+          <FlatList
+            data={newNgo}
+            renderItem={renderItem}
+            keyExtractor={(item) => item._id}
+            numColumns={1}
+            centerContent={true}
+          />
+        ) : (
+          <Text style={{ alignItems: "center", alignContent: "center" }}>
+            There is no data.
+          </Text>
+        )}
       </View>
     </View>
   );
