@@ -1,20 +1,6 @@
-interface ngos {
-  _id: string;
-  name: string;
-  logo: string;
-  services: string[];
-  information: string;
-  address: address;
-  telephones?: string[];
-}
+import { ngo } from "../types";
 
-type address = {
-  city: string;
-  state: string;
-  address: string;
-};
-
-const ngos: ngos[] = [
+const ngos: ngo[] = [
   {
     _id: "1",
     name: "UNHCR 1",

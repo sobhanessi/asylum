@@ -16,11 +16,16 @@ export interface ngo {
   name: string;
   logo: string;
   services: string[];
-  information?: string;
-  address?: string;
+  information: string;
+  address: address;
   telephones?: string[];
 }
 
+type address = {
+  city: string;
+  state: string;
+  address: string;
+};
 export interface filterPage {
   name: string;
   counselor: boolean;
