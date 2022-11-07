@@ -75,10 +75,19 @@ const NGO = ({ route }: { route: any }) => {
               key={_id + " Text 4" + service}
             >
               {service.service}{" "}
-              {services?.length - 1 !== services?.indexOf(service) ? "- " : ""}
+              {/* {services?.length - 1 !== services?.indexOf(service) ? "- " : ""} */}
             </Text>
           ))}
         </Text>
+        <View style={styles.services}>
+          {services.map((service: any) => (
+            <View>
+              <Text variant="headlineMedium">{service.service}</Text>
+              <Text variant="bodyLarge">{service.information}</Text>
+              <Text variant="bodyMedium">{service.languages}</Text>
+            </View>
+          ))}
+        </View>
 
         <DataTable>
           <DataTable.Header>
@@ -145,8 +154,6 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   services: {
-    color: "gray",
-    fontSize: 18,
-    width: "90%",
+    marginLeft: 15,
   },
 });
