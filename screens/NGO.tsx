@@ -14,11 +14,19 @@ import {
   Roboto_900Black_Italic,
   useFonts,
 } from "@expo-google-fonts/roboto";
-import { Text } from "react-native-paper";
+import { DataTable, Text } from "react-native-paper";
 
 const NGO = ({ route }: { route: any }) => {
-  const { _id, address, information, logo, name, services, telephone } =
-    route.params.item;
+  const {
+    _id,
+    address,
+    information,
+    logo,
+    name,
+    services,
+    telephones,
+    openingHours,
+  } = route.params.item;
 
   const windowWidth = Dimensions.get("window").width;
   const itemWidth = windowWidth - 10;
@@ -71,6 +79,20 @@ const NGO = ({ route }: { route: any }) => {
             </Text>
           ))}
         </Text>
+
+        <DataTable>
+          <DataTable.Header>
+            {openingHours.map((oh: any) => (
+              <DataTable.Title>{oh.day}</DataTable.Title>
+            ))}
+          </DataTable.Header>
+          <DataTable.Row>
+            {openingHours.map((oh: any) => (
+              <DataTable.Cell>{oh.hours}</DataTable.Cell>
+            ))}
+          </DataTable.Row>
+        </DataTable>
+
         <Text
           style={[styles.address, { fontFamily: "Roboto_500Medium" }]}
           key={_id + " Text5"}

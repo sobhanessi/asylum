@@ -81,10 +81,10 @@ const Item = ({ item }: { item: ngo }) => {
                   style={[styles.services, { textAlign: "justify" }]}
                   key={item._id + " Text 4" + service}
                 >
-                  {service}{" "}
-                  {item.services?.length - 1 !== item.services?.indexOf(service)
+                  {service.service}{" "}
+                  {/* {item.services?.length - 1 !== item.services?.indexOf(service)
                     ? "- "
-                    : ""}
+                    : ""} */}
                 </Paragraph>
               ))}
             </Paragraph>
@@ -126,23 +126,34 @@ const Home = () => {
   if (name.length) {
     // in ghesmat ro bayad small case konam va un taraf ro ham ba small case/
     // barresi konam.
-    newNgo = newNgo.filter((ngo) => ngo.name === name);
+    newNgo = newNgo.filter(
+      (ngo) => ngo.name.toLowerCase() === name.toLowerCase()
+    );
+    // newNgo.length === 0 &&
+    //   newNgo.filter((ngo) => ngo.name.toLowerCase().includes(name));
   }
-  if (location.length) {
+  if (location.length)
     newNgo = ngos.filter((ngo) => ngo.address?.city === location);
-  }
-  if (counselor) {
-    newNgo = newNgo.filter((ngo) => ngo.services.includes("Counselor"));
-  }
-  if (lawyer) {
-    newNgo = newNgo.filter((ngo) => ngo.services.includes("Lawyer"));
-  }
-  if (psychologist) {
-    newNgo = newNgo.filter((ngo) => ngo.services.includes("Psycho social"));
-  }
-  if (socialWorker) {
-    newNgo = newNgo.filter((ngo) => ngo.services.includes("Social Worker"));
-  }
+
+  if (counselor)
+    newNgo = newNgo.filter((ngo) =>
+      ngo.services.map((service) => service.service === "Counselor")
+    );
+
+  if (lawyer)
+    newNgo = newNgo.filter((ngo) =>
+      ngo.services.map((service) => service.service === "Lawyer")
+    );
+
+  if (psychologist)
+    newNgo = newNgo.filter((ngo) =>
+      ngo.services.map((service) => service.service === "Psychologist")
+    );
+
+  if (socialWorker)
+    newNgo = newNgo.filter((ngo) =>
+      ngo.services.map((service) => service.service === "Social Worker")
+    );
 
   return (
     <View

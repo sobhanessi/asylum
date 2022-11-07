@@ -11,14 +11,16 @@ export type RootStackParamList = {
   Filter: undefined;
 };
 
+// for ngo
 export interface ngo {
   _id: string;
   name: string;
   logo: string;
-  services: string[];
+  services: services[];
   information: string;
   address: address;
-  telephones?: string[];
+  telephones?: telephones[];
+  openingHours: openingHours[];
 }
 
 type address = {
@@ -26,11 +28,28 @@ type address = {
   state: string;
   address: string;
 };
-export interface filterPage {
+
+type openingHours = {
+  day: string;
+  hours: string;
+};
+
+type telephones = {
+  means: string;
+  number: string;
+};
+
+type services = {
+  service: string;
+  languages: string[];
+  information: string;
+};
+
+export type filterPage = {
   name: string;
   counselor: boolean;
   lawyer: boolean;
   location: string;
   psychologist: boolean;
   socialWorker: boolean;
-}
+};
