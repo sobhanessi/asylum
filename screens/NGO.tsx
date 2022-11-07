@@ -62,42 +62,51 @@ const NGO = ({ route }: { route: any }) => {
         >
           Services :
         </Text>
-        <Text
-          style={[
-            styles.services,
-            { fontFamily: "Roboto_500Medium", textAlign: "center" },
-          ]}
-          key={_id + " Text3"}
-        >
-          {services?.map((service: any) => (
-            <Text
-              style={{ textAlign: "justify" }}
-              key={_id + " Text 4" + service}
-            >
-              {service.service}{" "}
-              {/* {services?.length - 1 !== services?.indexOf(service) ? "- " : ""} */}
-            </Text>
-          ))}
-        </Text>
+
         <View style={styles.services}>
           {services.map((service: any) => (
-            <View>
-              <Text variant="headlineMedium">{service.service}</Text>
-              <Text variant="bodyLarge">{service.information}</Text>
-              <Text variant="bodyMedium">{service.languages}</Text>
+            <View style={styles.service}>
+              <Text variant="headlineMedium" key={_id + "Text 41"}>
+                {service.service}
+              </Text>
+              <Text variant="bodyLarge" key={_id + "Text 42"}>
+                {service.information}
+              </Text>
+              <Text variant="bodyMedium" key={_id + "Text 43"}>
+                {service.languages.map((l: any) => (
+                  <Text>
+                    {l}
+                    {service.languages?.length - 1 !==
+                    service.languages?.indexOf(l)
+                      ? " - "
+                      : ""}
+                  </Text>
+                ))}
+              </Text>
             </View>
           ))}
         </View>
-
-        <DataTable>
+        <Text
+          variant="headlineMedium"
+          style={[
+            styles.information,
+            { fontFamily: "Roboto_500Medium", marginTop: 20 },
+          ]}
+          key={_id + " Text7"}
+        >
+          Opening Hours :
+        </Text>
+        <DataTable style={styles.table}>
           <DataTable.Header>
             {openingHours.map((oh: any) => (
-              <DataTable.Title>{oh.day}</DataTable.Title>
+              <DataTable.Title key={oh.day}>{oh.day}</DataTable.Title>
             ))}
           </DataTable.Header>
           <DataTable.Row>
             {openingHours.map((oh: any) => (
-              <DataTable.Cell>{oh.hours}</DataTable.Cell>
+              <DataTable.Cell key={oh.day + oh.hours}>
+                {oh.hours}
+              </DataTable.Cell>
             ))}
           </DataTable.Row>
         </DataTable>
@@ -109,7 +118,11 @@ const NGO = ({ route }: { route: any }) => {
           Address :
         </Text>
         <Text
-          style={[styles.information, { fontFamily: "Roboto_900Black" }]}
+          style={[
+            styles.information,
+            { fontFamily: "Roboto_900Black" },
+            { marginBottom: 10 },
+          ]}
           key={_id + " Text6"}
         >
           {address.city},{address.address}
@@ -153,7 +166,22 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     width: "100%",
   },
+  openingHours: {
+    marginLeft: 15,
+    marginTop: 20,
+  },
   services: {
+    marginLeft: 15,
+  },
+  service: {
+    borderLeftColor: "#5ca7f0",
+    borderLeftWidth: 8,
+    marginBottom: 10,
+    paddingLeft: 5,
+  },
+  table: {
+    textAlign: "center",
+    justifyContent: "center",
     marginLeft: 15,
   },
 });
