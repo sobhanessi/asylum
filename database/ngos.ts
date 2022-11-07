@@ -11,6 +11,11 @@ const ngos: ngo[] = [
         languages: ["Farsi", "English"],
         information: "blah blah blah blah blah",
       },
+      {
+        service: "Lawyer",
+        languages: ["Farsi", "English"],
+        information: "blah blah blah blah blah",
+      },
     ],
     information:
       "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",

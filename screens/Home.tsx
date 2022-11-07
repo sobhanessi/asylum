@@ -82,9 +82,9 @@ const Item = ({ item }: { item: ngo }) => {
                   key={item._id + " Text 4" + service}
                 >
                   {service.service}{" "}
-                  {/* {item.services?.length - 1 !== item.services?.indexOf(service)
+                  {item.services?.length - 1 !== item.services?.indexOf(service)
                     ? "- "
-                    : ""} */}
+                    : ""}
                 </Paragraph>
               ))}
             </Paragraph>

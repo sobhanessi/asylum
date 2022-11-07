@@ -74,7 +74,7 @@ const NGO = ({ route }: { route: any }) => {
               style={{ textAlign: "justify" }}
               key={_id + " Text 4" + service}
             >
-              {service}{" "}
+              {service.service}{" "}
               {services?.length - 1 !== services?.indexOf(service) ? "- " : ""}
             </Text>
           ))}
