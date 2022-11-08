@@ -142,7 +142,7 @@ const Home = () => {
 
   if (lawyer)
     newNgo = newNgo.filter((ngo) =>
-      ngo.services.map((service) => service.service === "Lawyer")
+      ngo.services.filter((m) => m.service.includes("Lawyer"))
     );
 
   if (psychologist)

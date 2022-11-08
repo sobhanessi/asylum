@@ -21,7 +21,7 @@ const LoginPageButtons = ({
   return (
     <View style={styles.container}>
       <Button
-        mode="contained"
+        mode="contained-tonal"
         style={[buttonStyle, styles.button]}
         onPress={onPress}
         icon={icon}
