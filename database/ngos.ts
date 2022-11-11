@@ -144,7 +144,7 @@ const ngos: ngo[] = [
     logo: "logo.png",
     services: [
       {
-        service: "Psychologist",
+        service: "Lawyer",
         languages: ["Farsi", "English"],
         information: "blah blah blah blah blah blah",
       },

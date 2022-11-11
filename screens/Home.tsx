@@ -137,22 +137,22 @@ const Home = () => {
 
   if (counselor)
     newNgo = newNgo.filter((ngo) =>
-      ngo.services.map((service) => service.service === "Counselor")
+      ngo.services.some((service) => service.service === "Counselor")
     );
 
   if (lawyer)
     newNgo = newNgo.filter((ngo) =>
-      ngo.services.filter((m) => m.service.includes("Lawyer"))
+      ngo.services.some((m) => m.service === "Lawyer")
     );
 
   if (psychologist)
     newNgo = newNgo.filter((ngo) =>
-      ngo.services.map((service) => service.service === "Psychologist")
+      ngo.services.some((service) => service.service === "Psychologist")
     );
 
   if (socialWorker)
     newNgo = newNgo.filter((ngo) =>
-      ngo.services.map((service) => service.service === "Social Worker")
+      ngo.services.some((service) => service.service === "Social Worker")
     );
 
   return (
