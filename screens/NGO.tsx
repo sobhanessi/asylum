@@ -15,8 +15,11 @@ import {
   useFonts,
 } from "@expo-google-fonts/roboto";
 import { DataTable, Text } from "react-native-paper";
+import { useRoute, RouteProp } from "@react-navigation/native";
+import { RootStackParamList } from "../types";
 
-const NGO = ({ route }: { route: any }) => {
+const NGO = () => {
+  const route = useRoute<RouteProp<RootStackParamList, "NGO">>();
   const {
     _id,
     address,
@@ -64,7 +67,7 @@ const NGO = ({ route }: { route: any }) => {
         </Text>
 
         <View style={styles.services}>
-          {services.map((service: any) => (
+          {services.map((service) => (
             <View style={styles.service}>
               <Text variant="headlineMedium" key={_id + "Text 41"}>
                 {service.service}
@@ -98,12 +101,12 @@ const NGO = ({ route }: { route: any }) => {
         </Text>
         <DataTable style={styles.table}>
           <DataTable.Header>
-            {openingHours.map((oh: any) => (
+            {openingHours.map((oh) => (
               <DataTable.Title key={oh.day}>{oh.day}</DataTable.Title>
             ))}
           </DataTable.Header>
           <DataTable.Row>
-            {openingHours.map((oh: any) => (
+            {openingHours.map((oh) => (
               <DataTable.Cell key={oh.day + oh.hours}>
                 {oh.hours}
               </DataTable.Cell>
