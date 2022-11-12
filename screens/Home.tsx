@@ -1,5 +1,6 @@
-import AppLoading from "expo-app-loading";
-import BottomSheet from "../components/BottomSheet";
+// import AppLoading from "expo-app-loading";
+// import { Entypo } from "@expo/vector-icons";
+import { Card, Paragraph, Text, Title } from "react-native-paper";
 import {
   Dimensions,
   FlatList,
@@ -7,20 +8,20 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RouteProp } from "@react-navigation/native";
-import ngos from "../database/ngos";
 import { filterPage, ngo, RootStackParamList } from "../types";
+// import * as Font from "expo-font";
+import LoginPageButtons from "../components/LoginPageButtons";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import ngos from "../database/ngos";
+import { RouteProp } from "@react-navigation/native";
 import React from "react";
+// import * as SplashScreen from "expo-splash-screen";
 import {
   Roboto_900Black,
   Roboto_500Medium,
   useFonts,
 } from "@expo-google-fonts/roboto";
-import { Card, Paragraph, Text, Title } from "react-native-paper";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import LoginPageButtons from "../components/LoginPageButtons";
 
 const Item = ({ item }: { item: ngo }) => {
   const ngoNavigation =
@@ -36,7 +37,7 @@ const Item = ({ item }: { item: ngo }) => {
     ngoNavigation.navigate("NGO", { item: item });
   };
 
-  if (!fontsLoaded) return <AppLoading />;
+  if (!fontsLoaded) return null;
   else
     return (
       <TouchableOpacity
@@ -51,6 +52,7 @@ const Item = ({ item }: { item: ngo }) => {
           // elevation={5}
           style={{ borderRadius: 25, marginBottom: 10 }}
           mode="contained"
+          key={item._id + item.name}
         >
           <Card.Cover
             source={require("../assets/unhcr.png")}
@@ -79,7 +81,7 @@ const Item = ({ item }: { item: ngo }) => {
               {item.services?.map((service) => (
                 <Paragraph
                   style={[styles.services, { textAlign: "justify" }]}
-                  key={item._id + " Text 4" + service}
+                  key={item._id + " Text 4" + service.service}
                 >
                   {service.service}{" "}
                   {item.services?.length - 1 !== item.services?.indexOf(service)
@@ -124,8 +126,6 @@ const Home = () => {
   // in ghesmat ro behtar konam.
 
   if (name.length) {
-    // in ghesmat ro bayad small case konam va un taraf ro ham ba small case/
-    // barresi konam.
     newNgo = newNgo.filter(
       (ngo) => ngo.name.toLowerCase() === name.toLowerCase()
     );
