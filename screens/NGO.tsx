@@ -17,6 +17,8 @@ import {
 import { DataTable, Text } from "react-native-paper";
 import { useRoute, RouteProp } from "@react-navigation/native";
 import { RootStackParamList } from "../types";
+import NgoServices from "../components/NgoServices";
+import NgoOpeningHours from "../components/NgoOpeningHours";
 
 const NGO = () => {
   const route = useRoute<RouteProp<RootStackParamList, "NGO">>();
@@ -39,58 +41,47 @@ const NGO = () => {
     Roboto_900Black,
   });
 
-  if (!fontsLoaded) return <AppLoading />;
+  if (!fontsLoaded) return null;
   else
     return (
       <ScrollView style={{}}>
-        <Image source={require("../assets/unhcr.png")} style={styles.image} />
+        <Image
+          source={require("../assets/unhcr.png")}
+          style={styles.image}
+          key={_id + "image"}
+        />
         <Text
+          variant="displayLarge"
           style={[styles.name, { fontFamily: "Roboto_900Black" }]}
-          key={_id + " Text1"}
+          key={"name"}
         >
           {name}
         </Text>
         <Text
+          variant="headlineLarge"
           style={[styles.information, { fontFamily: "Roboto_900Black_Italic" }]}
-          key={_id + " Text11"}
+          key={"information"}
         >
           {"„ " + information + "“"}
         </Text>
         <Text
+          variant="displayMedium"
           style={[
             styles.information,
             { fontFamily: "Roboto_500Medium", marginTop: 20 },
           ]}
-          key={_id + " Text2"}
+          key={"services"}
         >
           Services :
         </Text>
 
-        <View style={styles.services}>
+        <View style={styles.services} key={"services bar"}>
           {services.map((service) => (
-            <View style={styles.service}>
-              <Text variant="headlineMedium" key={_id + "Text 41"}>
-                {service.service}
-              </Text>
-              <Text variant="bodyLarge" key={_id + "Text 42"}>
-                {service.information}
-              </Text>
-              <Text variant="bodyMedium" key={_id + "Text 43"}>
-                {service.languages.map((l: any) => (
-                  <Text>
-                    {l}
-                    {service.languages?.length - 1 !==
-                    service.languages?.indexOf(l)
-                      ? " - "
-                      : ""}
-                  </Text>
-                ))}
-              </Text>
-            </View>
+            <NgoServices service={service} key={service.service} />
           ))}
         </View>
         <Text
-          variant="headlineMedium"
+          variant="displayMedium"
           style={[
             styles.information,
             { fontFamily: "Roboto_500Medium", marginTop: 20 },
@@ -99,22 +90,11 @@ const NGO = () => {
         >
           Opening Hours :
         </Text>
-        <DataTable style={styles.table}>
-          <DataTable.Header>
-            {openingHours.map((oh) => (
-              <DataTable.Title key={oh.day}>{oh.day}</DataTable.Title>
-            ))}
-          </DataTable.Header>
-          <DataTable.Row>
-            {openingHours.map((oh) => (
-              <DataTable.Cell key={oh.day + oh.hours}>
-                {oh.hours}
-              </DataTable.Cell>
-            ))}
-          </DataTable.Row>
-        </DataTable>
+
+        <NgoOpeningHours openingHours={openingHours} />
 
         <Text
+          variant="displayMedium"
           style={[styles.address, { fontFamily: "Roboto_500Medium" }]}
           key={_id + " Text5"}
         >
@@ -128,7 +108,9 @@ const NGO = () => {
           ]}
           key={_id + " Text6"}
         >
-          {address.city},{address.address}
+          {address.city}
+          {", "}
+          {address.address}
         </Text>
       </ScrollView>
     );
@@ -174,17 +156,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   services: {
-    marginLeft: 15,
-  },
-  service: {
-    borderLeftColor: "#5ca7f0",
-    borderLeftWidth: 8,
-    marginBottom: 10,
-    paddingLeft: 5,
-  },
-  table: {
-    textAlign: "center",
-    justifyContent: "center",
     marginLeft: 15,
   },
 });

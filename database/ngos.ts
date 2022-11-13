@@ -24,7 +24,7 @@ const ngos: ngo[] = [
       state: "Nord-Rhein Westfalen",
       address: "41179, EAE JHQ",
     },
-    telephones: [{ means: "whatsapp", number: "004915123516042" }],
+    telephones: [{ means: "whatsapp", number: "4915123516042" }],
     openingHours: [
       { day: "Monday", hours: "9 - 17" },
       { day: "Tuesday", hours: "9 - 17" },
@@ -51,7 +51,7 @@ const ngos: ngo[] = [
       state: "Nord-Rhein Westfalen",
       address: "41179, EAE JHQ",
     },
-    telephones: [{ means: "whatsapp", number: "004915123516042" }],
+    telephones: [{ means: "whatsapp", number: "4915123516042" }],
     openingHours: [{ day: "Montag", hours: "9 - 17" }],
   },
   {
@@ -72,7 +72,7 @@ const ngos: ngo[] = [
       state: "Nord-Rhein Westfalen",
       address: "41179, EAE JHQ",
     },
-    telephones: [{ means: "whatsapp", number: "004915123516042" }],
+    telephones: [{ means: "whatsapp", number: "4915123516042" }],
     openingHours: [{ day: "Montag", hours: "9 - 17" }],
   },
   {
@@ -93,7 +93,7 @@ const ngos: ngo[] = [
       state: "Nord-Rhein Westfalen",
       address: "41179, EAE JHQ",
     },
-    telephones: [{ means: "whatsapp", number: "004915123516042" }],
+    telephones: [{ means: "whatsapp", number: "4915123516042" }],
     openingHours: [{ day: "Montag", hours: "9 - 17" }],
   },
   {
@@ -114,7 +114,7 @@ const ngos: ngo[] = [
       state: "Nord-Rhein Westfalen",
       address: "41179, EAE JHQ",
     },
-    telephones: [{ means: "whatsapp", number: "004915123516042" }],
+    telephones: [{ means: "whatsapp", number: "4915123516042" }],
     openingHours: [{ day: "Montag", hours: "9 - 17" }],
   },
   {
@@ -135,7 +135,7 @@ const ngos: ngo[] = [
       state: "Nord-Rhein Westfalen",
       address: "41179, EAE JHQ",
     },
-    telephones: [{ means: "whatsapp", number: "004915123516042" }],
+    telephones: [{ means: "whatsapp", number: "4915123516042" }],
     openingHours: [{ day: "Montag", hours: "9 - 17" }],
   },
   {
@@ -156,7 +156,7 @@ const ngos: ngo[] = [
       state: "Nord-Rhein Westfalen",
       address: "41179, EAE JHQ",
     },
-    telephones: [{ means: "whatsapp", number: "004915123516042" }],
+    telephones: [{ means: "whatsapp", number: "4915123516042" }],
     openingHours: [{ day: "Montag", hours: "9 - 17" }],
   },
 ];

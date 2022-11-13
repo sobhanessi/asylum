@@ -29,7 +29,7 @@ type address = {
   address: string;
 };
 
-type openingHours = {
+export type openingHours = {
   day: string;
   hours: string;
 };
@@ -39,7 +39,7 @@ type telephones = {
   number: string;
 };
 
-type services = {
+export type services = {
   service: string;
   languages: string[];
   information: string;
