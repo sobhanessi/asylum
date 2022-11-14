@@ -43,6 +43,7 @@ export type services = {
   service: string;
   languages: string[];
   information: string;
+  serviceLogo?: string;
 };
 
 export type filterPage = {

@@ -44,7 +44,7 @@ const NGO = () => {
   if (!fontsLoaded) return null;
   else
     return (
-      <ScrollView style={{}}>
+      <ScrollView style={styles.scrollView}>
         <Image
           source={require("../assets/unhcr.png")}
           style={styles.image}
@@ -59,15 +59,20 @@ const NGO = () => {
         </Text>
         <Text
           variant="headlineLarge"
-          style={[styles.information, { fontFamily: "Roboto_900Black_Italic" }]}
+          style={[
+            styles.information,
+            styles.ngoInformation,
+            { fontFamily: "Roboto_900Black_Italic" },
+          ]}
           key={"information"}
         >
           {"„ " + information + "“"}
         </Text>
         <Text
-          variant="displayMedium"
+          variant="headlineMedium"
           style={[
-            styles.information,
+            styles.services,
+
             { fontFamily: "Roboto_500Medium", marginTop: 20 },
           ]}
           key={"services"}
@@ -81,9 +86,9 @@ const NGO = () => {
           ))}
         </View>
         <Text
-          variant="displayMedium"
+          variant="headlineMedium"
           style={[
-            styles.information,
+            styles.openingHours,
             { fontFamily: "Roboto_500Medium", marginTop: 20 },
           ]}
           key={_id + " Text7"}
@@ -94,7 +99,7 @@ const NGO = () => {
         <NgoOpeningHours openingHours={openingHours} />
 
         <Text
-          variant="displayMedium"
+          variant="titleLarge"
           style={[styles.address, { fontFamily: "Roboto_500Medium" }]}
           key={_id + " Text5"}
         >
@@ -122,7 +127,9 @@ const styles = StyleSheet.create({
   address: {
     fontSize: 24,
     marginTop: 20,
-    paddingLeft: 15,
+    width: "90%",
+    marginRight: "5%",
+    marginLeft: "5%",
   },
   container: {
     flex: 1,
@@ -132,30 +139,44 @@ const styles = StyleSheet.create({
   image: {
     borderRadius: 15,
     height: 350,
-    width: "98%",
-    marginLeft: "1%",
-    marginRight: "1%",
+    width: "100%",
   },
   information: {
+    width: "90%",
     fontSize: 26,
     marginBottom: 5,
-    paddingLeft: 15,
-    width: "100%",
-    // quotes: '"„" "“"',
+    marginRight: "5%",
+    marginLeft: "5%",
+    // quotes: '"„" "“"',\
   },
 
   name: {
-    fontSize: 36,
-    paddingBottom: 12,
-    paddingLeft: 15,
-    paddingTop: 5,
-    width: "100%",
+    width: "90%",
+    marginRight: "5%",
+    marginLeft: "5%",
+    marginTop: 10,
+    marginBottom: 10,
+    // textDecorationColor: "#cf2e2e",
+    textDecorationLine: "underline",
+  },
+  ngoInformation: {
+    // color: "#9b51e0",
+    color: "#0693e3",
   },
   openingHours: {
-    marginLeft: 15,
-    marginTop: 20,
+    width: "90%",
+    marginRight: "5%",
+    marginLeft: "5%",
+    color: "#cf2e2e",
+  },
+  scrollView: {
+    // marginLeft: 5,
+    // marginRight: 5,
   },
   services: {
-    marginLeft: 15,
+    width: "90%",
+    marginRight: "5%",
+    marginLeft: "5%",
+    color: "#cf2e2e",
   },
 });

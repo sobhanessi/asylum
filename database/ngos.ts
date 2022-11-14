@@ -10,11 +10,13 @@ const ngos: ngo[] = [
         service: "Psychologist",
         languages: ["Farsi", "English"],
         information: "blah blah blah blah blah",
+        serviceLogo: "../assets/psychologist.jpg",
       },
       {
         service: "Lawyer",
         languages: ["Farsi", "English"],
         information: "blah blah blah blah blah",
+        serviceLogo: "../assets/lawyer.jpg",
       },
     ],
     information:
@@ -147,6 +149,7 @@ const ngos: ngo[] = [
         service: "Lawyer",
         languages: ["Farsi", "English"],
         information: "blah blah blah blah blah blah",
+        serviceLogo: "lawyer.jpg",
       },
     ],
     information:
