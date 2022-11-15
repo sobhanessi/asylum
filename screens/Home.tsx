@@ -1,5 +1,3 @@
-// import AppLoading from "expo-app-loading";
-// import { Entypo } from "@expo/vector-icons";
 import { Card, Paragraph, Text, Title } from "react-native-paper";
 import {
   Dimensions,
@@ -9,19 +7,22 @@ import {
   View,
 } from "react-native";
 import { filterPage, ngo, RootStackParamList } from "../types";
-// import * as Font from "expo-font";
 import LoginPageButtons from "../components/LoginPageButtons";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import ngos from "../database/ngos";
 import { RouteProp } from "@react-navigation/native";
 import React from "react";
-// import * as SplashScreen from "expo-splash-screen";
 import {
   Roboto_900Black,
   Roboto_500Medium,
   useFonts,
 } from "@expo-google-fonts/roboto";
 import { useNavigation, useRoute } from "@react-navigation/native";
+
+// todo : 1. fixing the problem with the pics.
+// todo : 2. making a better ui in filter page.
+// todo : 3. making better ui in ngo page.
+// todo : 4.
 
 const Item = ({ item }: { item: ngo }) => {
   const ngoNavigation =
@@ -61,13 +62,13 @@ const Item = ({ item }: { item: ngo }) => {
           <Card.Content key={item._id}>
             <Title
               style={[styles.name, { fontFamily: "Roboto_900Black" }]}
-              key={item._id + " Text1"}
+              key={item._id + "Title"}
             >
               {item.name}
             </Title>
             <Paragraph
               style={[styles.information, { fontFamily: "Roboto_500Medium" }]}
-              key={item._id + " Text2"}
+              key={item._id + " information"}
             >
               {item.information}
             </Paragraph>
@@ -76,12 +77,12 @@ const Item = ({ item }: { item: ngo }) => {
                 styles.services,
                 { fontFamily: "Roboto_500Medium", textAlign: "center" },
               ]}
-              key={item._id + " Text3"}
+              key={item._id + " services"}
             >
               {item.services?.map((service) => (
                 <Paragraph
                   style={[styles.services, { textAlign: "justify" }]}
-                  key={item._id + " Text 4" + service.service}
+                  key={item._id + " service" + service.service}
                 >
                   {service.service}{" "}
                   {item.services?.length - 1 !== item.services?.indexOf(service)
@@ -201,14 +202,14 @@ const styles = StyleSheet.create({
   information: {
     fontSize: 22,
     marginBottom: 5,
-    paddingLeft: 15,
+    paddingLeft: 10,
     width: "100%",
   },
 
   name: {
     fontSize: 32,
     paddingBottom: 12,
-    paddingLeft: 15,
+    paddingLeft: 10,
     marginTop: 15,
   },
   services: {

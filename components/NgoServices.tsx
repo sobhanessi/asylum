@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   },
   service: {
     // borderLeftColor: "#5ca7f0",
-    borderLeftWidth: 8,
+    // borderLeftWidth: 8,
     marginBottom: 10,
     paddingLeft: 5,
     width: "100%",
