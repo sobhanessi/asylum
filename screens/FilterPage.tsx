@@ -7,10 +7,11 @@ import { Picker } from "@react-native-picker/picker";
 import React from "react";
 import { RootStackParamList } from "../types";
 import { useNavigation } from "@react-navigation/native";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { Text } from "react-native-paper";
 // import { useRoute } from "@react-navigation/native";
 
-// todo : 1. location ro ezafe bokonam
+// todo : 1. add 'near me'
 const FilterPage = () => {
   const filterNavigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList, "Main">>();
@@ -40,10 +41,14 @@ const FilterPage = () => {
           marginBottom: "5%",
         }}
       >
+        <Text variant="headlineSmall" style={styles.titleText}>
+          Search By Name Of Organization :
+        </Text>
         <Searchbar
           placeholder="Search"
           onChangeText={onChangeSearch}
           value={searchQuery}
+          style={{ backgroundColor: "white", borderRadius: 15 }}
         />
       </View>
 
@@ -54,9 +59,12 @@ const FilterPage = () => {
           marginLeft: "10%",
           marginTop: "5%",
           marginBottom: "5%",
+          borderRadius: 15,
         }}
       >
-        <Text style={{ marginBottom: "5%" }}>Select Your City :</Text>
+        <Text variant="headlineSmall" style={styles.titleText}>
+          Select Your City :
+        </Text>
         <Picker
           selectedValue={selectCity}
           onValueChange={(itemValue, itemIndex) => setSelectCity(itemValue)}
@@ -73,7 +81,9 @@ const FilterPage = () => {
       </View>
 
       <View style={styles.chipMain}>
-        <Text style={{ marginBottom: "4%", fontSize: 22 }}>Filter By :</Text>
+        <Text variant="headlineSmall" style={styles.titleText}>
+          Filter By :
+        </Text>
         <View style={styles.chipRow}>
           <Chip
             style={styles.chip}
@@ -154,6 +164,10 @@ const styles = StyleSheet.create({
   chipRow: {
     display: "flex",
     justifyContent: "space-around",
-    flexDirection: "column",
+    flexDirection: "row",
+  },
+  titleText: {
+    marginBottom: "5%",
+    fontWeight: "bold",
   },
 });
