@@ -1,3 +1,5 @@
+import { ImageSourcePropType } from "react-native";
+
 export type RootStackParamList = {
   Main: {
     screen: string;
@@ -15,7 +17,7 @@ export type RootStackParamList = {
 export interface ngo {
   _id: string;
   name: string;
-  logo: string;
+  logo: ImageSourcePropType;
   services: services[];
   information: string;
   address: address;
@@ -43,7 +45,7 @@ export type services = {
   service: string;
   languages: string[];
   information: string;
-  serviceLogo?: string;
+  serviceLogo: ImageSourcePropType;
 };
 
 export type filterPage = {

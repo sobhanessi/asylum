@@ -55,10 +55,7 @@ const Item = ({ item }: { item: ngo }) => {
           mode="contained"
           key={item._id + item.name}
         >
-          <Card.Cover
-            source={require("../assets/unhcr.png")}
-            style={styles.image}
-          />
+          <Card.Cover source={item.logo} style={styles.image} />
           <Card.Content key={item._id}>
             <Title
               style={[styles.name, { fontFamily: "Roboto_900Black" }]}

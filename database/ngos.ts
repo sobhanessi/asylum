@@ -4,19 +4,19 @@ const ngos: ngo[] = [
   {
     _id: "1",
     name: "UNHCR 1",
-    logo: "logo.png",
+    logo: require("../assets/unhcr.png"),
     services: [
       {
         service: "Psychologist",
         languages: ["Farsi", "English"],
         information: "blah blah blah blah blah",
-        serviceLogo: "../assets/psychologist.jpg",
+        serviceLogo: require("../assets/psychologist.jpg"),
       },
       {
         service: "Lawyer",
         languages: ["Farsi", "English"],
         information: "blah blah blah blah blah",
-        serviceLogo: "../assets/lawyer.jpg",
+        serviceLogo: require("../assets/lawyer.jpg"),
       },
     ],
     information:
@@ -38,12 +38,13 @@ const ngos: ngo[] = [
   {
     _id: "2",
     name: "UNHCR 2",
-    logo: "logo.png",
+    logo: require("../assets/unhcr.png"),
     services: [
       {
         service: "Psychologist",
         languages: ["Farsi", "English"],
         information: "blah blah blah blah blah blah",
+        serviceLogo: require("../assets/psychologist.jpg"),
       },
     ],
     information:
@@ -59,12 +60,13 @@ const ngos: ngo[] = [
   {
     _id: "3",
     name: "UNHCR 3",
-    logo: "logo.png",
+    logo: require("../assets/unhcr.png"),
     services: [
       {
         service: "Psychologist",
         languages: ["Farsi", "English"],
         information: "blah blah blah blah blah blah",
+        serviceLogo: require("../assets/psychologist.jpg"),
       },
     ],
     information:
@@ -80,12 +82,13 @@ const ngos: ngo[] = [
   {
     _id: "4",
     name: "UNHCR 4",
-    logo: "logo.png",
+    logo: require("../assets/unhcr.png"),
     services: [
       {
         service: "Psychologist",
         languages: ["Farsi", "English"],
         information: "blah blah blah blah blah blah",
+        serviceLogo: require("../assets/psychologist.jpg"),
       },
     ],
     information:
@@ -101,12 +104,13 @@ const ngos: ngo[] = [
   {
     _id: "5",
     name: "UNHCR 5",
-    logo: "logo.png",
+    logo: require("../assets/unhcr.png"),
     services: [
       {
         service: "Psychologist",
         languages: ["Farsi", "English"],
         information: "blah blah blah blah blah blah",
+        serviceLogo: require("../assets/psychologist.jpg"),
       },
     ],
     information:
@@ -122,12 +126,13 @@ const ngos: ngo[] = [
   {
     _id: "6",
     name: "UNHCR 6",
-    logo: "logo.png",
+    logo: require("../assets/unhcr.png"),
     services: [
       {
         service: "Psychologist",
         languages: ["Farsi", "English"],
         information: "blah blah blah blah blah blah",
+        serviceLogo: require("../assets/psychologist.jpg"),
       },
     ],
     information:
@@ -143,13 +148,13 @@ const ngos: ngo[] = [
   {
     _id: "7",
     name: "UNHCR 7",
-    logo: "logo.png",
+    logo: require("../assets/unhcr.png"),
     services: [
       {
         service: "Lawyer",
         languages: ["Farsi", "English"],
         information: "blah blah blah blah blah blah",
-        serviceLogo: "lawyer.jpg",
+        serviceLogo: require("../assets/lawyer.jpg"),
       },
     ],
     information:

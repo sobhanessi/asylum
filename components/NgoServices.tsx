@@ -20,12 +20,14 @@ const NgoServices = ({ service }: { service: services }) => {
 
   return (
     <View style={styles.service}>
-      <View style={{ width: "33%", marginRight: 10 }}>
-        <Image
-          source={require("../assets/psychologist.jpg")}
-          style={{ height: 125, width: "auto", borderRadius: 15 }}
-        />
-      </View>
+      {service.serviceLogo && (
+        <View style={{ width: "33%", marginRight: 10 }}>
+          <Image
+            source={service?.serviceLogo}
+            style={{ height: 125, width: "auto", borderRadius: 15 }}
+          />
+        </View>
+      )}
       <View>
         <Text
           variant="headlineMedium"
