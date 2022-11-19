@@ -1,5 +1,5 @@
 import { Chip, Searchbar } from "react-native-paper";
-import { FilterPageContext } from "../context/context";
+import { AppContext } from "../context/context";
 import germanCities from "../database/germanyCities.json";
 import LoginPageButtons from "../components/LoginPageButtons";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -28,7 +28,7 @@ const FilterPage = () => {
     setSelectCounselor,
     selectCity,
     setSelectCity,
-  } = React.useContext(FilterPageContext);
+  } = React.useContext(AppContext);
 
   return (
     <View>

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function FilterPageState() {
+export default function AppState() {
   const [searchQuery, setSearchQuery] = React.useState("");
   const onChangeSearch = (query: string) => setSearchQuery(query);
 
@@ -10,6 +10,8 @@ export default function FilterPageState() {
   const [selectCounselor, setSelectCounselor] = React.useState(false);
   // const [selectLocation, setSelectLocation] = React.useState("");
   const [selectCity, setSelectCity] = React.useState("");
+
+  const [selectLanguage, setSelectLanguage] = React.useState("");
 
   return {
     searchQuery,
@@ -26,5 +28,7 @@ export default function FilterPageState() {
     // setSelectLocation,
     selectCity,
     setSelectCity,
+    selectLanguage,
+    setSelectLanguage,
   };
 }

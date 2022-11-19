@@ -7,6 +7,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import NGO from "./screens/NGO";
 import React from "react";
 import { StyleSheet } from "react-native";
+import StartupPage from "./screens/StartupPage";
 
 // felan niazi be login nist chera ke app gharare static bashe
 // dar marhaleye avval.
@@ -48,6 +49,13 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="Startup"
+          component={StartupPage}
+          options={{
+            headerTitle: "Choose Your Language Preference",
+          }}
+        />
         <Stack.Screen
           name="Main"
           component={BottomNav}

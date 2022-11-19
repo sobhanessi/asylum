@@ -6,8 +6,9 @@ import { StatusBar } from "expo-status-bar";
 // import store from "./redux/store";
 import { StyleSheet } from "react-native";
 import React from "react";
-import { FilterPageContext } from "./context/context";
-import FilterPageState from "./context/filterPageStates";
+import { AppContext } from "./context/context";
+import AppState from "./context/appStates";
+import StartupPageState from "./context/startupPageState";
 
 export default function App() {
   // 1. inja bayad user ro az storage begiram va baadesh loadesh konam...
@@ -30,11 +31,12 @@ export default function App() {
     setSelectCounselor,
     selectCity,
     setSelectCity,
-  } = FilterPageState();
+    selectLanguage,
+    setSelectLanguage,
+  } = AppState();
 
   return (
-    // <Provider store={store}>
-    <FilterPageContext.Provider
+    <AppContext.Provider
       value={{
         searchQuery,
         onChangeSearch,
@@ -48,6 +50,8 @@ export default function App() {
         setSelectCounselor,
         selectCity,
         setSelectCity,
+        selectLanguage,
+        setSelectLanguage,
       }}
     >
       <SafeAreaView style={styles.container}>
@@ -55,8 +59,7 @@ export default function App() {
         <Navigation />
         {/* <StackScreen /> */}
       </SafeAreaView>
-    </FilterPageContext.Provider>
-    // </Provider>
+    </AppContext.Provider>
   );
 }
 

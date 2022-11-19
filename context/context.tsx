@@ -1,7 +1,7 @@
 import * as React from "react";
 // import { filterPage } from "../types";
 
-interface filterPage {
+type app = {
   searchQuery: string;
   selectCounselor: boolean;
   selectLawyer: boolean;
@@ -15,9 +15,11 @@ interface filterPage {
   setSelectPsychologist: React.Dispatch<React.SetStateAction<boolean>>;
   setSelectSocialWorker: React.Dispatch<React.SetStateAction<boolean>>;
   // onValueChange: (i: string, n?: number) => void;
-}
+  selectLanguage: string;
+  setSelectLanguage: React.Dispatch<React.SetStateAction<string>>;
+};
 
-export const FilterPageContext = React.createContext<filterPage>({
+export const AppContext = React.createContext<app>({
   searchQuery: "",
   selectCounselor: false,
   selectLawyer: false,
@@ -31,4 +33,6 @@ export const FilterPageContext = React.createContext<filterPage>({
   setSelectPsychologist: () => {},
   setSelectSocialWorker: () => {},
   // onValueChange: () => {},
+  selectLanguage: "",
+  setSelectLanguage: () => {},
 });

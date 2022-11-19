@@ -11,6 +11,9 @@ export type RootStackParamList = {
   Login: undefined;
   NGO: { item: ngo };
   Filter: undefined;
+  StartupPage: {
+    language: language;
+  };
 };
 
 // for ngo
@@ -55,4 +58,8 @@ export type filterPage = {
   location: string;
   psychologist: boolean;
   socialWorker: boolean;
+};
+
+export type language = {
+  language: string;
 };
