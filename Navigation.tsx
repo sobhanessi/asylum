@@ -9,6 +9,7 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import StartupPage from "./screens/StartupPage";
 import SelectCountryPage from "./screens/SelectCountryPage";
+import SelectCityPage from "./screens/SelectCityPage";
 
 // felan niazi be login nist chera ke app gharare static bashe
 // dar marhaleye avval.
@@ -61,6 +62,11 @@ const Navigation = () => {
         <Stack.Screen
           name="SelectCountryPage"
           component={SelectCountryPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SelectCityPage"
+          component={SelectCityPage}
           options={{ headerShown: false }}
         />
         <Stack.Screen

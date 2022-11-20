@@ -8,7 +8,7 @@ import { StyleSheet } from "react-native";
 import React from "react";
 import { AppContext } from "./context/context";
 import AppState from "./context/appStates";
-import StartupPageState from "./context/startupPageState";
+// import StartupPageState from "./context/startupPageState";
 
 export default function App() {
   // 1. inja bayad user ro az storage begiram va baadesh loadesh konam...
@@ -33,6 +33,8 @@ export default function App() {
     setSelectCity,
     selectLanguage,
     setSelectLanguage,
+    selectCountry,
+    setSelectCountry,
   } = AppState();
 
   return (
@@ -52,6 +54,8 @@ export default function App() {
         setSelectCity,
         selectLanguage,
         setSelectLanguage,
+        selectCountry,
+        setSelectCountry,
       }}
     >
       <SafeAreaView style={styles.container}>

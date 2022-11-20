@@ -60,6 +60,7 @@ const StartupPage = () => {
         buttonStyle={{ marginBottom: 20 }}
         textStyle={{}}
         onPress={() =>
+          selectLanguage.length > 0 &&
           navigation.push("SelectCountryPage", { language: selectLanguage })
         }
       />

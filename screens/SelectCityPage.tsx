@@ -10,30 +10,30 @@ import { Text } from "react-native-paper";
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { RootStackParamList } from "../types";
 
-const SelectCountryPage = () => {
-  const { selectCountry, setSelectCountry } = React.useContext(AppContext);
+const SelectCityPage = () => {
+  const { selectCity, setSelectCity } = React.useContext(AppContext);
   const navigation =
     useNavigation<
-      NativeStackNavigationProp<RootStackParamList, "SelectCountryPage">
+      NativeStackNavigationProp<RootStackParamList, "SelectCityPage">
     >();
   const params = useRoute<RouteProp<RootStackParamList, "SelectCityPage">>();
 
-  const { language } = params.params;
+  const { language, country } = params.params;
   return (
     <View style={styles.container}>
       <View style={styles.selectCountryView}>
         <Text variant="headlineSmall" style={styles.titleText}>
-          Select Your Country :
+          Select Your City :
         </Text>
         <Picker
-          selectedValue={selectCountry}
-          onValueChange={(itemValue, itemIndex) => setSelectCountry(itemValue)}
+          selectedValue={selectCity}
+          onValueChange={(itemValue, itemIndex) => setSelectCity(itemValue)}
           style={{
             backgroundColor: "white",
             borderRadius: 15,
           }}
         >
-          <Picker.Item label="Select Your Country : " value="" />
+          <Picker.Item label="Select Your City : " value="" />
           {countries.map((c) => (
             <Picker.Item label={c.country} value={c.code} key={c.code} />
           ))}
@@ -56,20 +56,14 @@ const SelectCountryPage = () => {
           text="Next"
           buttonStyle={{ marginBottom: 20 }}
           textStyle={{}}
-          onPress={() =>
-            selectCountry.length &&
-            navigation.push("SelectCityPage", {
-              language: language,
-              country: selectCountry,
-            })
-          }
+          onPress={() => console.log("")}
         />
       </View>
     </View>
   );
 };
 
-export default SelectCountryPage;
+export default SelectCityPage;
 
 const styles = StyleSheet.create({
   container: { flex: 1, display: "flex", flexDirection: "column" },

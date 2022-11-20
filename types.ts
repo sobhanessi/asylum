@@ -15,6 +15,10 @@ export type RootStackParamList = {
   SelectCountryPage: {
     language: string;
   };
+  SelectCityPage: {
+    language: string;
+    country: string;
+  };
 };
 
 // for ngo
