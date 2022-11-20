@@ -17,6 +17,8 @@ type app = {
   // onValueChange: (i: string, n?: number) => void;
   selectLanguage: string;
   setSelectLanguage: React.Dispatch<React.SetStateAction<string>>;
+  selectCountry: string;
+  setSelectCountry: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export const AppContext = React.createContext<app>({
@@ -35,4 +37,6 @@ export const AppContext = React.createContext<app>({
   // onValueChange: () => {},
   selectLanguage: "",
   setSelectLanguage: () => {},
+  selectCountry: "",
+  setSelectCountry: () => {},
 });

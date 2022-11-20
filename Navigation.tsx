@@ -8,6 +8,7 @@ import NGO from "./screens/NGO";
 import React from "react";
 import { StyleSheet } from "react-native";
 import StartupPage from "./screens/StartupPage";
+import SelectCountryPage from "./screens/SelectCountryPage";
 
 // felan niazi be login nist chera ke app gharare static bashe
 // dar marhaleye avval.
@@ -53,8 +54,14 @@ const Navigation = () => {
           name="Startup"
           component={StartupPage}
           options={{
-            headerTitle: "Choose Your Language Preference",
+            // headerTitle: "Choose Your Language Preference",
+            headerShown: false,
           }}
+        />
+        <Stack.Screen
+          name="SelectCountryPage"
+          component={SelectCountryPage}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Main"

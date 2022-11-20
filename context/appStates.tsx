@@ -13,6 +13,8 @@ export default function AppState() {
 
   const [selectLanguage, setSelectLanguage] = React.useState("");
 
+  const [selectCountry, setSelectCountry] = React.useState("");
+
   return {
     searchQuery,
     onChangeSearch,
@@ -30,5 +32,7 @@ export default function AppState() {
     setSelectCity,
     selectLanguage,
     setSelectLanguage,
+    selectCountry,
+    setSelectCountry,
   };
 }

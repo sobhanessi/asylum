@@ -11,13 +11,14 @@ export type RootStackParamList = {
   Login: undefined;
   NGO: { item: ngo };
   Filter: undefined;
-  StartupPage: {
-    language: language;
+  StartupPage: undefined;
+  SelectCountryPage: {
+    language: string;
   };
 };
 
 // for ngo
-export interface ngo {
+export type ngo = {
   _id: string;
   name: string;
   logo: ImageSourcePropType;
@@ -26,7 +27,7 @@ export interface ngo {
   address: address;
   telephones?: telephones[];
   openingHours: openingHours[];
-}
+};
 
 type address = {
   city: string;
@@ -58,8 +59,4 @@ export type filterPage = {
   location: string;
   psychologist: boolean;
   socialWorker: boolean;
-};
-
-export type language = {
-  language: string;
 };

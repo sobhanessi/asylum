@@ -59,7 +59,9 @@ const StartupPage = () => {
         text="Next"
         buttonStyle={{ marginBottom: 20 }}
         textStyle={{}}
-        onPress={() => console.log("")}
+        onPress={() =>
+          navigation.push("SelectCountryPage", { language: selectLanguage })
+        }
       />
     </View>
   );
