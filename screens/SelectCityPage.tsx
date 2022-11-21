@@ -17,9 +17,7 @@ const SelectCityPage = () => {
   const [selectState, setSelectState] = React.useState("");
   const [cities, setCities] = React.useState(germanyCities);
   const navigation =
-    useNavigation<
-      NativeStackNavigationProp<RootStackParamList, "SelectCityPage">
-    >();
+    useNavigation<NativeStackNavigationProp<RootStackParamList, "Main">>();
   const params = useRoute<RouteProp<RootStackParamList, "SelectCityPage">>();
 
   const states = [...new Set(germanyCities.map((g) => g.state))];
@@ -27,8 +25,6 @@ const SelectCityPage = () => {
   React.useEffect(() => {
     setCities(germanyCities.filter((g) => g.state === selectState));
   }, [selectState]);
-
-  console.log(cities.length);
 
   const { language, country } = params.params;
   return (
@@ -88,7 +84,20 @@ const SelectCityPage = () => {
           text="Next"
           buttonStyle={{ marginBottom: 20 }}
           textStyle={{}}
-          onPress={() => console.log("")}
+          onPress={() =>
+            selectCity &&
+            navigation.push("Main", {
+              screen: "Main",
+              filter: {
+                name: "",
+                location: selectCity,
+                lawyer: false,
+                socialWorker: false,
+                psychologist: false,
+                counselor: false,
+              },
+            })
+          }
         />
       </View>
     </View>

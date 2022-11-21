@@ -102,7 +102,7 @@ const Home = () => {
     <Item item={item} key={item._id} />
   );
 
-  const params = useRoute<RouteProp<RootStackParamList, "Main">>();
+  const params = useRoute<RouteProp<RootStackParamList, "Home">>();
 
   const {
     name,
