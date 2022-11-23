@@ -19,6 +19,14 @@ const SelectCountryPage = () => {
   const params = useRoute<RouteProp<RootStackParamList, "SelectCityPage">>();
 
   const { language } = params.params;
+
+  const onPressNext = () => {
+    selectCountry.length &&
+      navigation.push("SelectCityPage", {
+        language: language,
+        country: selectCountry,
+      });
+  };
   return (
     <View style={styles.container}>
       <View style={styles.selectCountryView}>
@@ -39,13 +47,7 @@ const SelectCountryPage = () => {
           ))}
         </Picker>
       </View>
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-evenly",
-        }}
-      >
+      <View style={styles.buttons}>
         <LoginPageButtons
           text="Back"
           buttonStyle={{ marginBottom: 20 }}
@@ -56,13 +58,7 @@ const SelectCountryPage = () => {
           text="Next"
           buttonStyle={{ marginBottom: 20 }}
           textStyle={{}}
-          onPress={() =>
-            selectCountry.length &&
-            navigation.push("SelectCityPage", {
-              language: language,
-              country: selectCountry,
-            })
-          }
+          onPress={() => onPressNext()}
         />
       </View>
     </View>
@@ -72,6 +68,11 @@ const SelectCountryPage = () => {
 export default SelectCountryPage;
 
 const styles = StyleSheet.create({
+  buttons: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+  },
   container: { flex: 1, display: "flex", flexDirection: "column" },
   selectCountryView: {
     flex: 1,

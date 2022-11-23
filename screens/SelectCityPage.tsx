@@ -27,6 +27,22 @@ const SelectCityPage = () => {
   }, [selectState]);
 
   const { language, country } = params.params;
+
+  const onPressNext = () => {
+    selectCity &&
+      navigation.push("Main", {
+        screen: "Main",
+        filter: {
+          name: "",
+          location: selectCity,
+          lawyer: false,
+          socialWorker: false,
+          psychologist: false,
+          counselor: false,
+        },
+      });
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.selectStateView}>
@@ -67,13 +83,7 @@ const SelectCityPage = () => {
           </Picker>
         )}
       </View>
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-evenly",
-        }}
-      >
+      <View style={styles.buttons}>
         <LoginPageButtons
           text="Back"
           buttonStyle={{ marginBottom: 20 }}
@@ -84,20 +94,7 @@ const SelectCityPage = () => {
           text="Next"
           buttonStyle={{ marginBottom: 20 }}
           textStyle={{}}
-          onPress={() =>
-            selectCity &&
-            navigation.push("Main", {
-              screen: "Main",
-              filter: {
-                name: "",
-                location: selectCity,
-                lawyer: false,
-                socialWorker: false,
-                psychologist: false,
-                counselor: false,
-              },
-            })
-          }
+          onPress={() => onPressNext()}
         />
       </View>
     </View>
@@ -107,6 +104,11 @@ const SelectCityPage = () => {
 export default SelectCityPage;
 
 const styles = StyleSheet.create({
+  buttons: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+  },
   container: { flex: 1, display: "flex", flexDirection: "column" },
   selectStateView: {
     flex: 1,

@@ -9,35 +9,19 @@ import { Text } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from "../types";
 
-// todo : too in safhe az user beporsam ke che zabani dare. ++
-// todo : baad passesh bedam be safheye keshvar. ++
-// todo : baad passesh bedam be safheye shahr.
-// todo : baad passesh bedam be safheye main
-
 const StartupPage = () => {
   const { selectLanguage, setSelectLanguage } = React.useContext(AppContext);
   const navigation =
     useNavigation<
       NativeStackNavigationProp<RootStackParamList, "StartupPage">
     >();
+  const onPressNext = () => {
+    selectLanguage.length > 0 &&
+      navigation.push("SelectCountryPage", { language: selectLanguage });
+  };
   return (
-    <View style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-      <View
-        style={{
-          flex: 1,
-          //   width: 220,
-          // marginRight: "10%",
-          // marginLeft: "10%",
-          marginTop: "5%",
-          marginBottom: "5%",
-          // borderRadius: 15,
-          display: "flex",
-          // alignContent: "center",
-          alignSelf: "center",
-          justifyContent: "center",
-          // alignItems: "center",
-        }}
-      >
+    <View style={styles.container}>
+      <View style={styles.languageView}>
         <Text variant="headlineSmall" style={styles.titleText}>
           Select Your Language :
         </Text>
@@ -59,10 +43,7 @@ const StartupPage = () => {
         text="Next"
         buttonStyle={{ marginBottom: 20 }}
         textStyle={{}}
-        onPress={() =>
-          selectLanguage.length > 0 &&
-          navigation.push("SelectCountryPage", { language: selectLanguage })
-        }
+        onPress={() => onPressNext()}
       />
     </View>
   );
@@ -71,6 +52,15 @@ const StartupPage = () => {
 export default StartupPage;
 
 const styles = StyleSheet.create({
+  container: { flex: 1, display: "flex", flexDirection: "column" },
+  languageView: {
+    flex: 1,
+    marginTop: "5%",
+    marginBottom: "5%",
+    display: "flex",
+    alignSelf: "center",
+    justifyContent: "center",
+  },
   titleText: {
     marginBottom: "5%",
     fontWeight: "bold",
