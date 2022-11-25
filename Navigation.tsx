@@ -8,7 +8,7 @@ import NewsPage from "./screens/NewsPage";
 import { NavigationContainer } from "@react-navigation/native";
 import NGO from "./screens/NGO";
 import React from "react";
-import { StyleSheet } from "react-native";
+import { Button, StyleSheet } from "react-native";
 import StartupPage from "./screens/StartupPage";
 import SelectCountryPage from "./screens/SelectCountryPage";
 import SelectCityPage from "./screens/SelectCityPage";
@@ -78,18 +78,27 @@ const Navigation = () => {
         <Stack.Screen
           name="SelectCountryPage"
           component={SelectCountryPage}
-          options={{ headerShown: false }}
+          options={({ navigation, route }) => ({
+            headerTitle: "",
+            headerTransparent: true,
+          })}
         />
         <Stack.Screen
           name="SelectCityPage"
           component={SelectCityPage}
-          options={{ headerShown: false }}
+          options={{
+            headerTitle: "",
+            headerTransparent: true,
+            headerBackTitle: "Back",
+          }}
         />
         <Stack.Screen
           name="Main"
           component={BottomNav}
           options={{
-            headerShown: false,
+            headerTitle: "",
+            // headerTransparent: true,
+            headerBackTitle: "Back",
           }}
         />
         <Stack.Screen name="NGO" component={NGO} />
