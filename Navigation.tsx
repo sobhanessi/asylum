@@ -2,7 +2,9 @@ import Home from "./screens/Home";
 import { BottomNavigation } from "react-native-paper";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FilterPage from "./screens/FilterPage";
+import InfoPage from "./screens/InfoPage";
 import LoginPage from "./screens/LoginPage";
+import NewsPage from "./screens/NewsPage";
 import { NavigationContainer } from "@react-navigation/native";
 import NGO from "./screens/NGO";
 import React from "react";
@@ -31,11 +33,25 @@ const BottomNav = () => {
       focusedIcon: "home",
       unfocusedIcon: "home-outline",
     },
+    {
+      key: "info",
+      title: "Info",
+      focusedIcon: "information",
+      unfocusedIcon: "information-outline",
+    },
+    {
+      key: "news",
+      title: "News",
+      focusedIcon: "newspaper",
+      unfocusedIcon: "newspaper",
+    },
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
     // login: () => <LoginPage />,
     home: () => <Home />,
+    info: () => <InfoPage />,
+    news: () => <NewsPage />,
   });
 
   return (

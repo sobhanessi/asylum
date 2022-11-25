@@ -53,7 +53,8 @@ export type services = {
   service: string;
   languages: string[];
   information: string;
-  serviceLogo: ImageSourcePropType;
+  serviceLogo?: ImageSourcePropType;
+  responsiblePerson?: string;
 };
 
 export type filterPage = {
