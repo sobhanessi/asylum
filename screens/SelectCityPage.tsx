@@ -17,7 +17,9 @@ const SelectCityPage = () => {
   const [selectState, setSelectState] = React.useState("");
   const [cities, setCities] = React.useState(germanyCities);
   const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParamList, "Main">>();
+    useNavigation<
+      NativeStackNavigationProp<RootStackParamList, "LookingFor">
+    >();
   const params = useRoute<RouteProp<RootStackParamList, "SelectCityPage">>();
 
   const states = [...new Set(germanyCities.map((g) => g.state))];
@@ -30,16 +32,10 @@ const SelectCityPage = () => {
 
   const onPressNext = () => {
     selectCity &&
-      navigation.push("Main", {
-        screen: "Main",
-        filter: {
-          name: "",
-          location: selectCity,
-          lawyer: false,
-          socialWorker: false,
-          psychologist: false,
-          counselor: false,
-        },
+      navigation.push("LookingFor", {
+        country: country,
+        city: selectCity,
+        language: language,
       });
   };
 

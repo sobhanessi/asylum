@@ -12,6 +12,7 @@ import { Button, StyleSheet } from "react-native";
 import StartupPage from "./screens/StartupPage";
 import SelectCountryPage from "./screens/SelectCountryPage";
 import SelectCityPage from "./screens/SelectCityPage";
+import LookingFor from "./screens/LookingFor";
 
 // felan niazi be login nist chera ke app gharare static bashe
 // dar marhaleye avval.
@@ -89,7 +90,15 @@ const Navigation = () => {
           options={{
             headerTitle: "",
             headerTransparent: true,
-            headerBackTitle: "Back",
+            // headerBackTitle: "Back",
+          }}
+        />
+        <Stack.Screen
+          name="LookingFor"
+          component={LookingFor}
+          options={{
+            headerTitle: "",
+            // headerTransparent: true,
           }}
         />
         <Stack.Screen

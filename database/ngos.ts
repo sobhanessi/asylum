@@ -3,6 +3,7 @@ import { ngo } from "../types";
 const ngos: ngo[] = [
   {
     _id: "1",
+    type: "NGO",
     name: "UNHCR 1",
     logo: require("../assets/unhcr.png"),
     services: [
@@ -38,6 +39,7 @@ const ngos: ngo[] = [
   {
     _id: "2",
     name: "UNHCR 2",
+    type: "NGO",
     logo: require("../assets/unhcr.png"),
     services: [
       {
@@ -59,6 +61,7 @@ const ngos: ngo[] = [
   },
   {
     _id: "3",
+    type: "NGO",
     name: "UNHCR 3",
     logo: require("../assets/unhcr.png"),
     services: [
@@ -81,6 +84,7 @@ const ngos: ngo[] = [
   },
   {
     _id: "4",
+    type: "NGO",
     name: "UNHCR 4",
     logo: require("../assets/unhcr.png"),
     services: [
@@ -103,6 +107,7 @@ const ngos: ngo[] = [
   },
   {
     _id: "5",
+    type: "NGO",
     name: "UNHCR 5",
     logo: require("../assets/unhcr.png"),
     services: [
@@ -125,6 +130,7 @@ const ngos: ngo[] = [
   },
   {
     _id: "6",
+    type: "NGO",
     name: "UNHCR 6",
     logo: require("../assets/unhcr.png"),
     services: [
@@ -147,6 +153,7 @@ const ngos: ngo[] = [
   },
   {
     _id: "7",
+    type: "NGO",
     name: "UNHCR 7",
     logo: require("../assets/unhcr.png"),
     services: [

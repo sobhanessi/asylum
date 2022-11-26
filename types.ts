@@ -19,14 +19,21 @@ export type RootStackParamList = {
     language: string;
     country: string;
   };
+  LookingFor: {
+    language: string;
+    country: string;
+    city: string;
+  };
 };
 
 // for ngo
 export type ngo = {
   _id: string;
+  type: string;
   name: string;
   logo: ImageSourcePropType;
   services: services[];
+  languageCourses?: languageCourses[];
   information: string;
   address: address;
   telephones?: telephones[];
@@ -37,6 +44,14 @@ type address = {
   city: string;
   state: string;
   address: string;
+};
+
+type languageCourses = {
+  level?: string;
+  information: string;
+  teacher: string;
+  hours: openingHours;
+  logo: string;
 };
 
 export type openingHours = {
