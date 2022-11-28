@@ -24,10 +24,20 @@ const LookingFor = () => {
     setSelectSocialWorker,
     selectLawyer,
     setSelectLawyer,
-    selectCounselor,
-    setSelectCounselor,
+    // selectCounselor,
+    // setSelectCounselor,
     selectCity,
     setSelectCity,
+    selectVocationalTraining,
+    setSelectVocationalTraining,
+    selectInterpreter,
+    setSelectInterpreter,
+    selectDoctor,
+    setSelectDoctor,
+    selectLanguageCourses,
+    setSelectLanguageCourses,
+    selectSports,
+    setSelectSports,
   } = React.useContext(AppContext);
 
   return (
@@ -41,7 +51,7 @@ const LookingFor = () => {
           marginBottom: "5%",
         }}
       >
-        <Text variant="headlineSmall" style={styles.titleText}>
+        <Text variant="headlineSmall" style={styles.titleText} key="titleText">
           Search By Name Of Organization :
         </Text>
         <Searchbar
@@ -52,56 +62,36 @@ const LookingFor = () => {
         />
       </View>
 
-      <View
-        style={{
-          width: "80%",
-          marginRight: "10%",
-          marginLeft: "10%",
-          marginTop: "5%",
-          marginBottom: "5%",
-          borderRadius: 15,
-        }}
-      >
-        <Text variant="headlineSmall" style={styles.titleText}>
-          Select Your City :
-        </Text>
-        <Picker
-          selectedValue={selectCity}
-          onValueChange={(itemValue, itemIndex) => setSelectCity(itemValue)}
-          style={{
-            backgroundColor: "white",
-            borderRadius: 15,
-          }}
-        >
-          <Picker.Item label="Select A City" value="" />
-          {germanCities.map((city) => (
-            <Picker.Item label={city.name} value={city.name} />
-          ))}
-        </Picker>
-      </View>
-
       <View style={styles.chipMain}>
-        <Text variant="headlineSmall" style={styles.titleText}>
+        <Text variant="headlineSmall" style={styles.titleText} key="titleText3">
           Filter By :
         </Text>
         <View style={styles.chipRow}>
           <Chip
             style={styles.chip}
             mode="outlined"
-            onPress={() => setSelectCounselor(!selectCounselor)}
-            selected={selectCounselor}
-            compact
+            onPress={() => setSelectLawyer(!selectLawyer)}
+            selected={selectLawyer}
+            // compact
+            key="counselor"
+            icon="account-tie"
+            showSelectedOverlay={true}
           >
-            Counselor
+            Counselor / Lawyer
           </Chip>
           <Chip
             style={styles.chip}
             mode="outlined"
-            onPress={() => setSelectLawyer(!selectLawyer)}
+            onPress={() =>
+              setSelectVocationalTraining(!selectVocationalTraining)
+            }
             selected={selectLawyer}
-            compact
+            // compact
+            key="vocational training"
+            icon="account-hard-hat"
+            showSelectedOverlay={true}
           >
-            Lawyer
+            Vocational Training
           </Chip>
         </View>
         <View style={styles.chipRow}>
@@ -111,6 +101,9 @@ const LookingFor = () => {
             onPress={() => setSelectPsychologist(!selectPsychologist)}
             selected={selectPsychologist}
             compact
+            key="psychologist"
+            icon="head-cog"
+            showSelectedOverlay={true}
           >
             Psychologist
           </Chip>
@@ -120,8 +113,68 @@ const LookingFor = () => {
             onPress={() => setSelectSocialWorker(!selectSocialWorker)}
             selected={selectSocialWorker}
             compact
+            key="socialWorker"
+            icon="account"
+            showSelectedOverlay={true}
           >
             Social Worker
+          </Chip>
+        </View>
+        <View style={styles.chipRow}>
+          <Chip
+            style={styles.chip}
+            mode="outlined"
+            onPress={() => setSelectInterpreter(!selectInterpreter)}
+            selected={selectInterpreter}
+            compact
+            key="interpreter"
+            icon="account-voice"
+            showSelectedOverlay={true}
+          >
+            Interpreter
+          </Chip>
+          <Chip
+            style={styles.chip}
+            mode="outlined"
+            onPress={() => setSelectDoctor(!selectDoctor)}
+            selected={selectDoctor}
+            compact
+            key="doctor"
+            icon="doctor"
+            showSelectedOverlay={true}
+          >
+            Doctor
+          </Chip>
+        </View>
+        <View style={styles.chipRow}>
+          <Chip
+            style={styles.chip}
+            mode="outlined"
+            onPress={() => setSelectLanguageCourses(!selectLanguageCourses)}
+            selected={selectLanguageCourses}
+            compact
+            key="language courses"
+            icon="translate"
+            showSelectedOverlay={true}
+          >
+            Language Courses
+          </Chip>
+          <Chip
+            style={styles.chip}
+            mode="outlined"
+            onPress={() => setSelectSports(!selectSports)}
+            selected={selectSports}
+            compact
+            key="sports"
+            icon="weight-lifter"
+            showSelectedOverlay={true}
+
+            // closeIcon="close"
+            // onClose={() => {
+            //   setSelectSports(!selectSports);
+            // }}
+          >
+            Sports
           </Chip>
         </View>
         <View>
@@ -137,11 +190,16 @@ const LookingFor = () => {
                 screen: "Home",
                 filter: {
                   name: searchQuery,
-                  counselor: selectCounselor,
+                  // counselor: selectCounselor,
                   lawyer: selectLawyer,
                   psychologist: selectPsychologist,
                   socialWorker: selectSocialWorker,
                   location: selectCity,
+                  vocationalTraining: selectVocationalTraining,
+                  interpreter: selectInterpreter,
+                  doctor: selectDoctor,
+                  languageCourses: selectLanguageCourses,
+                  sports: selectSports,
                 },
               })
             }
@@ -155,7 +213,13 @@ const LookingFor = () => {
 export default LookingFor;
 
 const styles = StyleSheet.create({
-  chip: { width: 150, marginBottom: "4%" },
+  chip: {
+    marginBottom: "4%",
+    maxWidth: 200,
+    // marginRight: 10,
+    display: "flex",
+    justifyContent: "center",
+  },
   chipMain: {
     width: "80%",
     marginRight: "10%",
@@ -163,8 +227,8 @@ const styles = StyleSheet.create({
   },
   chipRow: {
     display: "flex",
-    justifyContent: "space-around",
-    flexDirection: "row",
+    justifyContent: "center",
+    alignContent: "center",
   },
   titleText: {
     marginBottom: "5%",

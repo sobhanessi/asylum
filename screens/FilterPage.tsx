@@ -24,8 +24,8 @@ const FilterPage = () => {
     setSelectSocialWorker,
     selectLawyer,
     setSelectLawyer,
-    selectCounselor,
-    setSelectCounselor,
+    // selectCounselor,
+    // setSelectCounselor,
     selectCity,
     setSelectCity,
   } = React.useContext(AppContext);
@@ -85,7 +85,7 @@ const FilterPage = () => {
           Filter By :
         </Text>
         <View style={styles.chipRow}>
-          <Chip
+          {/* <Chip
             style={styles.chip}
             mode="outlined"
             onPress={() => setSelectCounselor(!selectCounselor)}
@@ -93,7 +93,7 @@ const FilterPage = () => {
             compact
           >
             Counselor
-          </Chip>
+          </Chip> */}
           <Chip
             style={styles.chip}
             mode="outlined"
@@ -137,7 +137,7 @@ const FilterPage = () => {
                 screen: "Home",
                 filter: {
                   name: searchQuery,
-                  counselor: selectCounselor,
+                  // counselor: selectCounselor,
                   lawyer: selectLawyer,
                   psychologist: selectPsychologist,
                   socialWorker: selectSocialWorker,

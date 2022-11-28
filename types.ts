@@ -74,9 +74,14 @@ export type services = {
 
 export type filterPage = {
   name: string;
-  counselor: boolean;
+  // counselor: boolean;
   lawyer: boolean;
   location: string;
   psychologist: boolean;
   socialWorker: boolean;
+  interpreter: boolean;
+  doctor: boolean;
+  vocationalTraining: boolean;
+  languageCourses: boolean;
+  sports: boolean;
 };

@@ -7,13 +7,18 @@ export default function AppState() {
   const [selectPsychologist, setSelectPsychologist] = React.useState(false);
   const [selectSocialWorker, setSelectSocialWorker] = React.useState(false);
   const [selectLawyer, setSelectLawyer] = React.useState(false);
-  const [selectCounselor, setSelectCounselor] = React.useState(false);
+  // const [selectCounselor, setSelectCounselor] = React.useState(false);
   // const [selectLocation, setSelectLocation] = React.useState("");
   const [selectCity, setSelectCity] = React.useState("");
-
   const [selectLanguage, setSelectLanguage] = React.useState("");
-
   const [selectCountry, setSelectCountry] = React.useState("");
+  const [selectVocationalTraining, setSelectVocationalTraining] =
+    React.useState(false);
+  const [selectInterpreter, setSelectInterpreter] = React.useState(false);
+  const [selectDoctor, setSelectDoctor] = React.useState(false);
+  const [selectLanguageCourses, setSelectLanguageCourses] =
+    React.useState(false);
+  const [selectSports, setSelectSports] = React.useState(false);
 
   return {
     searchQuery,
@@ -24,8 +29,8 @@ export default function AppState() {
     setSelectSocialWorker,
     selectLawyer,
     setSelectLawyer,
-    selectCounselor,
-    setSelectCounselor,
+    // selectCounselor,
+    // setSelectCounselor,
     // selectLocation,
     // setSelectLocation,
     selectCity,
@@ -34,5 +39,15 @@ export default function AppState() {
     setSelectLanguage,
     selectCountry,
     setSelectCountry,
+    selectVocationalTraining,
+    setSelectVocationalTraining,
+    selectInterpreter,
+    setSelectInterpreter,
+    selectDoctor,
+    setSelectDoctor,
+    selectLanguageCourses,
+    setSelectLanguageCourses,
+    selectSports,
+    setSelectSports,
   };
 }

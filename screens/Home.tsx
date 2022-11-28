@@ -19,10 +19,7 @@ import {
 } from "@expo-google-fonts/roboto";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
-// todo : 1. fixing the problem with the pics.
-// todo : 2. making a better ui in filter page.
 // todo : 3. making better ui in ngo page.
-// todo : 4.
 
 const Item = ({ item }: { item: ngo }) => {
   const ngoNavigation =
@@ -106,7 +103,7 @@ const Home = () => {
 
   const {
     name,
-    counselor,
+    // counselor,
     lawyer,
     psychologist,
     socialWorker,
@@ -133,10 +130,10 @@ const Home = () => {
   if (location.length)
     newNgo = ngos.filter((ngo) => ngo.address?.city === location);
 
-  if (counselor)
-    newNgo = newNgo.filter((ngo) =>
-      ngo.services.some((service) => service.service === "Counselor")
-    );
+  // if (counselor)
+  //   newNgo = newNgo.filter((ngo) =>
+  //     ngo.services.some((service) => service.service === "Counselor")
+  //   );
 
   if (lawyer)
     newNgo = newNgo.filter((ngo) =>

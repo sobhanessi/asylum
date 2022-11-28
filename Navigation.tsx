@@ -14,9 +14,6 @@ import SelectCountryPage from "./screens/SelectCountryPage";
 import SelectCityPage from "./screens/SelectCityPage";
 import LookingFor from "./screens/LookingFor";
 
-// felan niazi be login nist chera ke app gharare static bashe
-// dar marhaleye avval.
-
 const Stack = createNativeStackNavigator();
 
 const BottomNav = () => {
@@ -68,7 +65,7 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Startup"
           component={StartupPage}
           options={{
@@ -92,7 +89,7 @@ const Navigation = () => {
             headerTransparent: true,
             // headerBackTitle: "Back",
           }}
-        />
+        /> */}
         <Stack.Screen
           name="LookingFor"
           component={LookingFor}
