@@ -24,8 +24,6 @@ const LookingFor = () => {
     setSelectSocialWorker,
     selectLawyer,
     setSelectLawyer,
-    // selectCounselor,
-    // setSelectCounselor,
     selectCity,
     setSelectCity,
     selectVocationalTraining,

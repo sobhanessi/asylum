@@ -24,10 +24,18 @@ const FilterPage = () => {
     setSelectSocialWorker,
     selectLawyer,
     setSelectLawyer,
-    // selectCounselor,
-    // setSelectCounselor,
     selectCity,
     setSelectCity,
+    selectVocationalTraining,
+    setSelectVocationalTraining,
+    selectInterpreter,
+    setSelectInterpreter,
+    selectDoctor,
+    setSelectDoctor,
+    selectLanguageCourses,
+    setSelectLanguageCourses,
+    selectSports,
+    setSelectSports,
   } = React.useContext(AppContext);
 
   return (
@@ -137,11 +145,15 @@ const FilterPage = () => {
                 screen: "Home",
                 filter: {
                   name: searchQuery,
-                  // counselor: selectCounselor,
                   lawyer: selectLawyer,
                   psychologist: selectPsychologist,
                   socialWorker: selectSocialWorker,
                   location: selectCity,
+                  vocationalTraining: selectVocationalTraining,
+                  interpreter: selectInterpreter,
+                  doctor: selectDoctor,
+                  languageCourses: selectLanguageCourses,
+                  sports: selectSports,
                 },
               })
             }
