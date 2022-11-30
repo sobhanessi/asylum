@@ -9,12 +9,9 @@ import { Text } from "react-native-paper";
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { RootStackParamList } from "../types";
 
-// todo : inja bayad ye halate dynamic be vojood biaram ta user baad az inke keshvar ro entekhab kard bar un asas shahr ro betoone entekhab kone.
-// todo : baraye behtar kardane tajrobe mitoonam state ro ham ezafe konam ke taraf az rooye state entekhab kone ke kojast va baad az un filter beshe shahr ha bar asase state.
-
 const SelectCityPage = () => {
   const { selectCity, setSelectCity } = React.useContext(AppContext);
-  const [selectState, setSelectState] = React.useState("");
+  const { selectState, setSelectState } = React.useContext(AppContext);
   const [cities, setCities] = React.useState(germanyCities);
   const navigation =
     useNavigation<

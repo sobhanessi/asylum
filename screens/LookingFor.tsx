@@ -214,7 +214,6 @@ const styles = StyleSheet.create({
   chip: {
     marginBottom: "4%",
     maxWidth: 200,
-    // marginRight: 10,
     display: "flex",
     justifyContent: "center",
   },

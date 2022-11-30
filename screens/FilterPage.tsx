@@ -1,6 +1,6 @@
 import { Chip, Searchbar } from "react-native-paper";
 import { AppContext } from "../context/context";
-import germanCities from "../database/germanyCities.json";
+import germanyCities from "../database/germanyCities.json";
 import LoginPageButtons from "../components/LoginPageButtons";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Picker } from "@react-native-picker/picker";
@@ -12,9 +12,8 @@ import { Text } from "react-native-paper";
 // import { useRoute } from "@react-navigation/native";
 
 // todo : 1. add 'near me'
+
 const FilterPage = () => {
-  const filterNavigation =
-    useNavigation<NativeStackNavigationProp<RootStackParamList, "Main">>();
   const {
     searchQuery,
     onChangeSearch,
@@ -36,7 +35,22 @@ const FilterPage = () => {
     setSelectLanguageCourses,
     selectSports,
     setSelectSports,
+    selectState,
+    setSelectState,
   } = React.useContext(AppContext);
+  const [cities, setCities] = React.useState(germanyCities);
+  const navigation =
+    useNavigation<
+      NativeStackNavigationProp<RootStackParamList, "LookingFor">
+    >();
+  const states = [...new Set(germanyCities.map((g) => g.state))];
+
+  React.useEffect(() => {
+    setCities(germanyCities.filter((g) => g.state === selectState));
+  }, [selectState]);
+
+  const filterNavigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList, "Main">>();
 
   return (
     <View>
@@ -49,7 +63,7 @@ const FilterPage = () => {
           marginBottom: "5%",
         }}
       >
-        <Text variant="headlineSmall" style={styles.titleText}>
+        <Text variant="headlineSmall" style={styles.titleText} key="titleText">
           Search By Name Of Organization :
         </Text>
         <Searchbar
@@ -70,46 +84,85 @@ const FilterPage = () => {
           borderRadius: 15,
         }}
       >
-        <Text variant="headlineSmall" style={styles.titleText}>
-          Select Your City :
+        <Text variant="headlineSmall" style={styles.titleText} key="stateText">
+          Select Your State :
         </Text>
         <Picker
-          selectedValue={selectCity}
-          onValueChange={(itemValue, itemIndex) => setSelectCity(itemValue)}
+          selectedValue={selectState}
+          onValueChange={(itemValue, itemIndex) => setSelectState(itemValue)}
           style={{
             backgroundColor: "white",
             borderRadius: 15,
+            marginBottom: "2%",
           }}
         >
-          <Picker.Item label="Select A City" value="" />
-          {germanCities.map((city) => (
-            <Picker.Item label={city.name} value={city.name} />
+          <Picker.Item
+            label="Select Your State : "
+            value=""
+            key="firstNothing"
+          />
+          {states.map((s) => (
+            <Picker.Item label={s} value={s} key={s} />
           ))}
         </Picker>
+        <Text variant="headlineSmall" style={styles.titleText} key="cityText">
+          Select Your City :
+        </Text>
+        {selectState.length > 0 && (
+          <Picker
+            selectedValue={selectCity}
+            onValueChange={(itemValue, itemIndex) => setSelectCity(itemValue)}
+            style={{
+              backgroundColor: "white",
+              borderRadius: 15,
+            }}
+          >
+            <Picker.Item
+              label="Select Your City : "
+              value=""
+              key="firstNothing"
+            />
+            {cities.map((g) => (
+              <Picker.Item
+                label={g.name}
+                value={g.name}
+                key={g.coords.lat + g.coords.lon}
+              />
+            ))}
+          </Picker>
+        )}
       </View>
 
       <View style={styles.chipMain}>
-        <Text variant="headlineSmall" style={styles.titleText}>
+        <Text variant="headlineSmall" style={styles.titleText} key="titleText3">
           Filter By :
         </Text>
         <View style={styles.chipRow}>
-          {/* <Chip
-            style={styles.chip}
-            mode="outlined"
-            onPress={() => setSelectCounselor(!selectCounselor)}
-            selected={selectCounselor}
-            compact
-          >
-            Counselor
-          </Chip> */}
           <Chip
             style={styles.chip}
             mode="outlined"
             onPress={() => setSelectLawyer(!selectLawyer)}
             selected={selectLawyer}
-            compact
+            // compact
+            key="counselor"
+            icon="account-tie"
+            showSelectedOverlay={true}
           >
-            Lawyer
+            Counselor / Lawyer
+          </Chip>
+          <Chip
+            style={styles.chip}
+            mode="outlined"
+            onPress={() =>
+              setSelectVocationalTraining(!selectVocationalTraining)
+            }
+            selected={selectLawyer}
+            // compact
+            key="vocational training"
+            icon="account-hard-hat"
+            showSelectedOverlay={true}
+          >
+            Vocational Training
           </Chip>
         </View>
         <View style={styles.chipRow}>
@@ -119,6 +172,9 @@ const FilterPage = () => {
             onPress={() => setSelectPsychologist(!selectPsychologist)}
             selected={selectPsychologist}
             compact
+            key="psychologist"
+            icon="head-cog"
+            showSelectedOverlay={true}
           >
             Psychologist
           </Chip>
@@ -128,8 +184,63 @@ const FilterPage = () => {
             onPress={() => setSelectSocialWorker(!selectSocialWorker)}
             selected={selectSocialWorker}
             compact
+            key="socialWorker"
+            icon="account"
+            showSelectedOverlay={true}
           >
             Social Worker
+          </Chip>
+        </View>
+        <View style={styles.chipRow}>
+          <Chip
+            style={styles.chip}
+            mode="outlined"
+            onPress={() => setSelectInterpreter(!selectInterpreter)}
+            selected={selectInterpreter}
+            compact
+            key="interpreter"
+            icon="account-voice"
+            showSelectedOverlay={true}
+          >
+            Interpreter
+          </Chip>
+          <Chip
+            style={styles.chip}
+            mode="outlined"
+            onPress={() => setSelectDoctor(!selectDoctor)}
+            selected={selectDoctor}
+            compact
+            key="doctor"
+            icon="doctor"
+            showSelectedOverlay={true}
+          >
+            Doctor
+          </Chip>
+        </View>
+        <View style={styles.chipRow}>
+          <Chip
+            style={styles.chip}
+            mode="outlined"
+            onPress={() => setSelectLanguageCourses(!selectLanguageCourses)}
+            selected={selectLanguageCourses}
+            compact
+            key="language courses"
+            icon="translate"
+            showSelectedOverlay={true}
+          >
+            Language Courses
+          </Chip>
+          <Chip
+            style={styles.chip}
+            mode="outlined"
+            onPress={() => setSelectSports(!selectSports)}
+            selected={selectSports}
+            compact
+            key="sports"
+            icon="weight-lifter"
+            showSelectedOverlay={true}
+          >
+            Sports
           </Chip>
         </View>
         <View>
@@ -167,7 +278,12 @@ const FilterPage = () => {
 export default FilterPage;
 
 const styles = StyleSheet.create({
-  chip: { width: 150, marginBottom: "4%" },
+  chip: {
+    marginBottom: "4%",
+    maxWidth: 200,
+    display: "flex",
+    justifyContent: "center",
+  },
   chipMain: {
     width: "80%",
     marginRight: "10%",
@@ -175,8 +291,8 @@ const styles = StyleSheet.create({
   },
   chipRow: {
     display: "flex",
-    justifyContent: "space-around",
-    flexDirection: "row",
+    justifyContent: "center",
+    alignContent: "center",
   },
   titleText: {
     marginBottom: "5%",

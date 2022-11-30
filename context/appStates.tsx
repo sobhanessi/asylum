@@ -7,8 +7,7 @@ export default function AppState() {
   const [selectPsychologist, setSelectPsychologist] = React.useState(false);
   const [selectSocialWorker, setSelectSocialWorker] = React.useState(false);
   const [selectLawyer, setSelectLawyer] = React.useState(false);
-  // const [selectCounselor, setSelectCounselor] = React.useState(false);
-  // const [selectLocation, setSelectLocation] = React.useState("");
+  const [selectState, setSelectState] = React.useState("");
   const [selectCity, setSelectCity] = React.useState("");
   const [selectLanguage, setSelectLanguage] = React.useState("");
   const [selectCountry, setSelectCountry] = React.useState("");
@@ -49,5 +48,7 @@ export default function AppState() {
     setSelectLanguageCourses,
     selectSports,
     setSelectSports,
+    selectState,
+    setSelectState,
   };
 }

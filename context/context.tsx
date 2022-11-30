@@ -15,6 +15,7 @@ type app = {
   selectDoctor: boolean;
   selectLanguageCourses: boolean;
   selectSports: boolean;
+  selectState: string;
   onChangeSearch: (q: string) => void;
   // setSelectCounselor: React.Dispatch<React.SetStateAction<boolean>>;
   setSelectLawyer: React.Dispatch<React.SetStateAction<boolean>>;
@@ -29,17 +30,16 @@ type app = {
   setSelectDoctor: React.Dispatch<React.SetStateAction<boolean>>;
   setSelectLanguageCourses: React.Dispatch<React.SetStateAction<boolean>>;
   setSelectSports: React.Dispatch<React.SetStateAction<boolean>>;
+  setSelectState: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export const AppContext = React.createContext<app>({
   searchQuery: "",
-  // selectCounselor: false,
   selectLawyer: false,
   selectCity: "",
   selectPsychologist: false,
   selectSocialWorker: false,
   onChangeSearch: () => {},
-  // setSelectCounselor: () => {},
   setSelectLawyer: () => {},
   setSelectCity: () => {},
   setSelectPsychologist: () => {},
@@ -59,4 +59,6 @@ export const AppContext = React.createContext<app>({
   setSelectLanguageCourses: () => {},
   selectSports: false,
   setSelectSports: () => {},
+  selectState: "",
+  setSelectState: () => {},
 });

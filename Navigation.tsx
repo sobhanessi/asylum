@@ -65,7 +65,7 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Startup"
           component={StartupPage}
           options={{
@@ -89,7 +89,7 @@ const Navigation = () => {
             headerTransparent: true,
             // headerBackTitle: "Back",
           }}
-        /> */}
+        />
         <Stack.Screen
           name="LookingFor"
           component={LookingFor}
