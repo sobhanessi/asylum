@@ -9,6 +9,7 @@ import { RootStackParamList } from "../types";
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, View } from "react-native";
 import { Text } from "react-native-paper";
+import { ScrollView } from "react-native-gesture-handler";
 // import { useRoute } from "@react-navigation/native";
 
 // todo : 1. add 'near me'
@@ -53,7 +54,7 @@ const FilterPage = () => {
     useNavigation<NativeStackNavigationProp<RootStackParamList, "Main">>();
 
   return (
-    <View>
+    <ScrollView>
       <View
         style={{
           width: "80%",
@@ -271,7 +272,7 @@ const FilterPage = () => {
           />
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
