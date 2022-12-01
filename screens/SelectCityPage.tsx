@@ -82,12 +82,14 @@ const SelectCityPage = () => {
           buttonStyle={{ marginBottom: 20 }}
           textStyle={{}}
           onPress={() => navigation.goBack()}
+          icon="chevron-left"
         />
         <LoginPageButtons
           text="Next"
           buttonStyle={{ marginBottom: 20 }}
           textStyle={{}}
           onPress={() => onPressNext()}
+          icon="chevron-right"
         />
       </View>
     </View>

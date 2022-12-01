@@ -44,6 +44,7 @@ const StartupPage = () => {
         buttonStyle={{ marginBottom: 20 }}
         textStyle={{}}
         onPress={() => onPressNext()}
+        icon="chevron-right"
       />
     </View>
   );

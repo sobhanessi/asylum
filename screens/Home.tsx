@@ -164,6 +164,7 @@ const Home = () => {
         }}
         buttonStyle={{ marginTop: "5%", marginBottom: "5%" }}
         onPress={() => filterNavigation.navigate("Filter")}
+        icon="filter-menu"
       />
       <View style={{ flex: 1 }}>
         {newNgo.length ? (

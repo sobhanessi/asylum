@@ -251,6 +251,7 @@ const FilterPage = () => {
               fontStyle: "bold",
               fontSize: 20,
             }}
+            icon="check"
             buttonStyle={{ marginTop: "5%", marginBottom: "5%" }}
             onPress={() =>
               filterNavigation.navigate("Main", {
